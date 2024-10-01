@@ -19,8 +19,8 @@ public class Proyecto1SO {
         // TODO code application logic here
         Menu interfaz = new Menu();
         interfaz.setResizable(false);
-        interfaz.setVisible(true);
         interfaz.setLocationRelativeTo(null);  
+        interfaz.setVisible(true);
     }
     
 }
