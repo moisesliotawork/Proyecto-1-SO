@@ -10,25 +10,25 @@ package Enums;
  */
 public enum WorkerEnum {
     /** Productor de Placa Base */
-    PlacaBase(0),
+    BaseProducer(0),
     
     /** Productor de CPU */
-    Procesador(1),
+    CPUProducer(1),
     
     /** Productor de Memoria RAM */
-    MemoriaRAM(2),
+    RAMProducer(2),
     
     /** Productor de Fuente de Alimentación */
-    FuenteAlimentacion(3),
+    PowerSupplyProducer(3),
     
     /** Productor de Tarjeta Gráfica */
-    TarjetaGrafica(4),
+    GraphicsCardProducer(4),
     
     /** Ensamblan el computador con componentes del almacén */
-    Ensamblador(5),
+    Assembler(5),
     
     /** Mantiene registro de los días */
-    Manager(6),
+    ProjectManager(6),
     
     /** Conoce el deadline y entrega los productos */
     Director(7);
