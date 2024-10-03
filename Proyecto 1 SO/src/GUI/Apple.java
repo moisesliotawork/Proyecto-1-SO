@@ -463,7 +463,7 @@ public class Apple extends javax.swing.JFrame {
 
         jLabel15.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel15.setText("Ensamblador: ");
+        jLabel15.setText("Assembler:");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 500, 100, 20));
 
         jLabel16.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
@@ -800,7 +800,7 @@ public class Apple extends javax.swing.JFrame {
 
         jLabel13.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel13.setText("Placa Base:");
+        jLabel13.setText("Base:");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 90, 20));
 
         Rojo2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
