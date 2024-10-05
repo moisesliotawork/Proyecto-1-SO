@@ -115,7 +115,6 @@ public class Apple extends javax.swing.JFrame {
         jTextField8 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jTextField1 = new javax.swing.JTextField();
-        jTextField2 = new javax.swing.JTextField();
         jTextField4 = new javax.swing.JTextField();
         jTextField5 = new javax.swing.JTextField();
         jTextField3 = new javax.swing.JTextField();
@@ -183,7 +182,7 @@ public class Apple extends javax.swing.JFrame {
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 60));
 
         jSeparator1.setForeground(new java.awt.Color(102, 102, 102));
-        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 450, 260, 10));
+        jPanel1.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 450, 260, 10));
 
         Utilidad.setEditable(false);
         Utilidad.setBackground(new java.awt.Color(226, 226, 226));
@@ -198,12 +197,12 @@ public class Apple extends javax.swing.JFrame {
                 UtilidadActionPerformed(evt);
             }
         });
-        jPanel1.add(Utilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 220, 140, 30));
+        jPanel1.add(Utilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 140, 30));
 
-        jLabel5.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Faltas:");
-        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 380, 60, 30));
+        jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 60, 30));
 
         FaltasPM1.setEditable(false);
         FaltasPM1.setBackground(new java.awt.Color(226, 226, 226));
@@ -218,12 +217,12 @@ public class Apple extends javax.swing.JFrame {
                 FaltasPM1ActionPerformed(evt);
             }
         });
-        jPanel1.add(FaltasPM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 380, 40, 30));
+        jPanel1.add(FaltasPM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 40, 30));
 
-        jLabel6.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(0, 0, 0));
-        jLabel6.setText("Descontado: $");
-        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 380, 110, 30));
+        jLabel6.setText("Descontado:  $");
+        jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 110, 30));
 
         DescontadoPM.setEditable(false);
         DescontadoPM.setBackground(new java.awt.Color(226, 226, 226));
@@ -238,12 +237,12 @@ public class Apple extends javax.swing.JFrame {
                 DescontadoPMActionPerformed(evt);
             }
         });
-        jPanel1.add(DescontadoPM, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 380, 60, 30));
+        jPanel1.add(DescontadoPM, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, 50, 30));
 
-        jLabel7.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Sueldo acumulado:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 420, 150, 30));
+        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 150, 30));
 
         SueldoPM.setEditable(false);
         SueldoPM.setBackground(new java.awt.Color(226, 226, 226));
@@ -258,7 +257,7 @@ public class Apple extends javax.swing.JFrame {
                 SueldoPMActionPerformed(evt);
             }
         });
-        jPanel1.add(SueldoPM, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 420, 120, 30));
+        jPanel1.add(SueldoPM, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 120, 30));
 
         jLabel8.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
         jLabel8.setForeground(new java.awt.Color(0, 0, 0));
@@ -278,12 +277,12 @@ public class Apple extends javax.swing.JFrame {
                 EstadoDActionPerformed(evt);
             }
         });
-        jPanel1.add(EstadoD, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 460, 140, 30));
+        jPanel1.add(EstadoD, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 460, 140, 30));
 
-        jLabel9.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Sueldo acumulado:");
-        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 500, 150, 30));
+        jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 150, 30));
 
         SueldoD.setEditable(false);
         SueldoD.setBackground(new java.awt.Color(226, 226, 226));
@@ -298,7 +297,7 @@ public class Apple extends javax.swing.JFrame {
                 SueldoDActionPerformed(evt);
             }
         });
-        jPanel1.add(SueldoD, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 500, 120, 30));
+        jPanel1.add(SueldoD, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 500, 120, 30));
 
         EstadoPM1.setEditable(false);
         EstadoPM1.setBackground(new java.awt.Color(226, 226, 226));
@@ -313,7 +312,7 @@ public class Apple extends javax.swing.JFrame {
                 EstadoPM1ActionPerformed(evt);
             }
         });
-        jPanel1.add(EstadoPM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 340, 140, 30));
+        jPanel1.add(EstadoPM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 340, 140, 30));
 
         GananciaBruta.setEditable(false);
         GananciaBruta.setBackground(new java.awt.Color(226, 226, 226));
@@ -328,7 +327,7 @@ public class Apple extends javax.swing.JFrame {
                 GananciaBrutaActionPerformed(evt);
             }
         });
-        jPanel1.add(GananciaBruta, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 120, 140, 30));
+        jPanel1.add(GananciaBruta, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 120, 140, 30));
 
         Costos1.setEditable(false);
         Costos1.setBackground(new java.awt.Color(226, 226, 226));
@@ -343,23 +342,23 @@ public class Apple extends javax.swing.JFrame {
                 Costos1ActionPerformed(evt);
             }
         });
-        jPanel1.add(Costos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 170, 140, 30));
+        jPanel1.add(Costos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 140, 30));
 
-        JLabel7.setFont(new java.awt.Font("Arial", 3, 20)); // NOI18N
+        JLabel7.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         JLabel7.setForeground(new java.awt.Color(0, 0, 0));
         JLabel7.setText("Utilidad:");
-        jPanel1.add(JLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 220, 100, 30));
+        jPanel1.add(JLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 100, 30));
 
-        JLabel8.setFont(new java.awt.Font("Arial", 3, 20)); // NOI18N
+        JLabel8.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         JLabel8.setForeground(new java.awt.Color(0, 0, 0));
         JLabel8.setText("Costos: ");
-        jPanel1.add(JLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 120, 30));
+        jPanel1.add(JLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 120, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("20");
-        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 390, 120, 30));
+        jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 390, 120, 30));
 
         Verde.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         Verde.setForeground(new java.awt.Color(0, 204, 102));
@@ -374,7 +373,7 @@ public class Apple extends javax.swing.JFrame {
                 VerdeMouseExited(evt);
             }
         });
-        jPanel1.add(Verde, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 60, 50, 60));
+        jPanel1.add(Verde, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 60, 50, 60));
 
         Rojo.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         Rojo.setForeground(new java.awt.Color(255, 102, 102));
@@ -389,7 +388,7 @@ public class Apple extends javax.swing.JFrame {
                 RojoMouseExited(evt);
             }
         });
-        jPanel1.add(Rojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 50, 60));
+        jPanel1.add(Rojo, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 50, 60));
 
         Amarillo.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         Amarillo.setForeground(new java.awt.Color(255, 204, 102));
@@ -404,7 +403,7 @@ public class Apple extends javax.swing.JFrame {
                 AmarilloMouseExited(evt);
             }
         });
-        jPanel1.add(Amarillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 60, 50, 60));
+        jPanel1.add(Amarillo, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 60, 50, 60));
 
         Verde1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         Verde1.setForeground(new java.awt.Color(0, 204, 102));
@@ -419,7 +418,7 @@ public class Apple extends javax.swing.JFrame {
                 Verde1MouseExited(evt);
             }
         });
-        jPanel1.add(Verde1, new org.netbeans.lib.awtextra.AbsoluteConstraints(420, 60, 30, 60));
+        jPanel1.add(Verde1, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 60, 30, 60));
 
         Rojo1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         Rojo1.setForeground(new java.awt.Color(255, 102, 102));
@@ -434,7 +433,7 @@ public class Apple extends javax.swing.JFrame {
                 Rojo1MouseExited(evt);
             }
         });
-        jPanel1.add(Rojo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 30, 60));
+        jPanel1.add(Rojo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 60, 30, 60));
 
         Amarillo1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         Amarillo1.setForeground(new java.awt.Color(255, 204, 102));
@@ -449,32 +448,32 @@ public class Apple extends javax.swing.JFrame {
                 Amarillo1MouseExited(evt);
             }
         });
-        jPanel1.add(Amarillo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 60, 50, 60));
+        jPanel1.add(Amarillo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 50, 60));
 
-        JLabel9.setFont(new java.awt.Font("Arial", 3, 20)); // NOI18N
+        JLabel9.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
         JLabel9.setForeground(new java.awt.Color(0, 0, 0));
         JLabel9.setText("Ganancias:");
-        jPanel1.add(JLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 140, 30));
+        jPanel1.add(JLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 140, 30));
 
         JLabel10.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
         JLabel10.setForeground(new java.awt.Color(0, 0, 0));
         JLabel10.setText("Base:");
-        jPanel1.add(JLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 110, 110, 20));
+        jPanel1.add(JLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 110, 20));
 
-        jLabel15.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Assembler:");
-        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 500, 100, 20));
+        jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 500, 120, 20));
 
-        jLabel16.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Graphics Card:");
-        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 470, 110, 20));
+        jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 470, 130, 20));
 
-        jLabel17.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Power Supply:");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 440, 110, 20));
+        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, 130, 20));
 
         TBase1.setEditable(false);
         TBase1.setBackground(new java.awt.Color(226, 226, 226));
@@ -489,7 +488,7 @@ public class Apple extends javax.swing.JFrame {
                 TBase1ActionPerformed(evt);
             }
         });
-        jPanel1.add(TBase1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 440, 40, 20));
+        jPanel1.add(TBase1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 440, 40, 20));
 
         TCPU1.setEditable(false);
         TCPU1.setBackground(new java.awt.Color(226, 226, 226));
@@ -504,7 +503,7 @@ public class Apple extends javax.swing.JFrame {
                 TCPU1ActionPerformed(evt);
             }
         });
-        jPanel1.add(TCPU1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 470, 40, 20));
+        jPanel1.add(TCPU1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 470, 40, 20));
 
         TRAM1.setEditable(false);
         TRAM1.setBackground(new java.awt.Color(226, 226, 226));
@@ -519,7 +518,7 @@ public class Apple extends javax.swing.JFrame {
                 TRAM1ActionPerformed(evt);
             }
         });
-        jPanel1.add(TRAM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 500, 40, 20));
+        jPanel1.add(TRAM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 500, 40, 20));
 
         TRAM.setEditable(false);
         TRAM.setBackground(new java.awt.Color(226, 226, 226));
@@ -534,7 +533,7 @@ public class Apple extends javax.swing.JFrame {
                 TRAMActionPerformed(evt);
             }
         });
-        jPanel1.add(TRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 500, 40, 20));
+        jPanel1.add(TRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 500, 40, 20));
 
         TCPU.setEditable(false);
         TCPU.setBackground(new java.awt.Color(226, 226, 226));
@@ -549,7 +548,7 @@ public class Apple extends javax.swing.JFrame {
                 TCPUActionPerformed(evt);
             }
         });
-        jPanel1.add(TCPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 470, 40, 20));
+        jPanel1.add(TCPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 470, 40, 20));
 
         TBase.setEditable(false);
         TBase.setBackground(new java.awt.Color(226, 226, 226));
@@ -564,7 +563,7 @@ public class Apple extends javax.swing.JFrame {
                 TBaseActionPerformed(evt);
             }
         });
-        jPanel1.add(TBase, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 440, 40, 20));
+        jPanel1.add(TBase, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 440, 40, 20));
 
         PlacasProducidas.setEditable(false);
         PlacasProducidas.setBackground(new java.awt.Color(226, 226, 226));
@@ -579,12 +578,12 @@ public class Apple extends javax.swing.JFrame {
                 PlacasProducidasActionPerformed(evt);
             }
         });
-        jPanel1.add(PlacasProducidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 110, 40, 20));
+        jPanel1.add(PlacasProducidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 110, 40, 20));
 
         PlacaBar.setBackground(new java.awt.Color(204, 204, 204));
         PlacaBar.setMaximum(25);
         PlacaBar.setToolTipText("");
-        jPanel1.add(PlacaBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 130, 160, 30));
+        jPanel1.add(PlacaBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 160, 30));
 
         CostoPlacas.setEditable(false);
         CostoPlacas.setBackground(new java.awt.Color(226, 226, 226));
@@ -598,22 +597,22 @@ public class Apple extends javax.swing.JFrame {
                 CostoPlacasActionPerformed(evt);
             }
         });
-        jPanel1.add(CostoPlacas, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 160, 80, 20));
+        jPanel1.add(CostoPlacas, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 80, 20));
 
         JLabel21.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
         JLabel21.setForeground(new java.awt.Color(0, 0, 0));
         JLabel21.setText("4");
         jPanel1.add(JLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 570, 340, 30));
 
-        JLabel6.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        JLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         JLabel6.setForeground(new java.awt.Color(0, 0, 0));
         JLabel6.setText("Costos:");
-        jPanel1.add(JLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 160, 90, 20));
+        jPanel1.add(JLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 90, 20));
 
         JLabel11.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
         JLabel11.setForeground(new java.awt.Color(0, 0, 0));
         JLabel11.setText("CPU:");
-        jPanel1.add(JLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 190, 110, 20));
+        jPanel1.add(JLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, 110, 20));
 
         CPUProducidas.setEditable(false);
         CPUProducidas.setBackground(new java.awt.Color(226, 226, 226));
@@ -628,12 +627,12 @@ public class Apple extends javax.swing.JFrame {
                 CPUProducidasActionPerformed(evt);
             }
         });
-        jPanel1.add(CPUProducidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 190, 40, 20));
+        jPanel1.add(CPUProducidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 40, 20));
 
         CPUBar.setBackground(new java.awt.Color(204, 204, 204));
         CPUBar.setMaximum(25);
         CPUBar.setToolTipText("");
-        jPanel1.add(CPUBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 210, 160, 30));
+        jPanel1.add(CPUBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 210, 160, 30));
 
         CostoCPU.setEditable(false);
         CostoCPU.setBackground(new java.awt.Color(226, 226, 226));
@@ -648,12 +647,12 @@ public class Apple extends javax.swing.JFrame {
                 CostoCPUActionPerformed(evt);
             }
         });
-        jPanel1.add(CostoCPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 240, 80, 20));
+        jPanel1.add(CostoCPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 80, 20));
 
-        JLabel12.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        JLabel12.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         JLabel12.setForeground(new java.awt.Color(0, 0, 0));
         JLabel12.setText("Tarjeta Gráfica:");
-        jPanel1.add(JLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 310, 90, 20));
+        jPanel1.add(JLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 310, 90, 20));
 
         CostoRAM.setEditable(false);
         CostoRAM.setBackground(new java.awt.Color(226, 226, 226));
@@ -668,22 +667,22 @@ public class Apple extends javax.swing.JFrame {
                 CostoRAMActionPerformed(evt);
             }
         });
-        jPanel1.add(CostoRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 320, 80, 20));
+        jPanel1.add(CostoRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 80, 20));
 
-        JLabel13.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        JLabel13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         JLabel13.setForeground(new java.awt.Color(0, 0, 0));
         JLabel13.setText("Costos:");
-        jPanel1.add(JLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 320, 90, 20));
+        jPanel1.add(JLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, 90, 20));
 
         RAMBar.setBackground(new java.awt.Color(204, 204, 204));
         RAMBar.setMaximum(25);
         RAMBar.setToolTipText("");
-        jPanel1.add(RAMBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 290, 160, 30));
+        jPanel1.add(RAMBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, 160, 30));
 
         JLabel14.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
         JLabel14.setForeground(new java.awt.Color(0, 0, 0));
         JLabel14.setText("RAM:");
-        jPanel1.add(JLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 270, 110, 20));
+        jPanel1.add(JLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 110, 20));
 
         RAMProducidas.setEditable(false);
         RAMProducidas.setBackground(new java.awt.Color(226, 226, 226));
@@ -698,12 +697,12 @@ public class Apple extends javax.swing.JFrame {
                 RAMProducidasActionPerformed(evt);
             }
         });
-        jPanel1.add(RAMProducidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 270, 40, 20));
+        jPanel1.add(RAMProducidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 40, 20));
 
         JLabel15.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
         JLabel15.setForeground(new java.awt.Color(0, 0, 0));
         JLabel15.setText("Power Supply:");
-        jPanel1.add(JLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 110, 130, 20));
+        jPanel1.add(JLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 130, 20));
 
         PowerSupplyProduc.setEditable(false);
         PowerSupplyProduc.setBackground(new java.awt.Color(226, 226, 226));
@@ -718,12 +717,12 @@ public class Apple extends javax.swing.JFrame {
                 PowerSupplyProducActionPerformed(evt);
             }
         });
-        jPanel1.add(PowerSupplyProduc, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 110, 40, 20));
+        jPanel1.add(PowerSupplyProduc, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 110, 40, 20));
 
         PowerSupplyBar.setBackground(new java.awt.Color(204, 204, 204));
         PowerSupplyBar.setMaximum(25);
         PowerSupplyBar.setToolTipText("");
-        jPanel1.add(PowerSupplyBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 130, 160, 30));
+        jPanel1.add(PowerSupplyBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 130, 160, 30));
 
         PowerSupplyCosto.setEditable(false);
         PowerSupplyCosto.setBackground(new java.awt.Color(226, 226, 226));
@@ -737,17 +736,17 @@ public class Apple extends javax.swing.JFrame {
                 PowerSupplyCostoActionPerformed(evt);
             }
         });
-        jPanel1.add(PowerSupplyCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 160, 80, 20));
+        jPanel1.add(PowerSupplyCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 160, 80, 20));
 
-        JLabel16.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        JLabel16.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         JLabel16.setForeground(new java.awt.Color(0, 0, 0));
         JLabel16.setText("Costos:");
-        jPanel1.add(JLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 160, 90, 20));
+        jPanel1.add(JLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 160, 90, 20));
 
-        JLabel17.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        JLabel17.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         JLabel17.setForeground(new java.awt.Color(0, 0, 0));
         JLabel17.setText("Estándar:");
-        jPanel1.add(JLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 290, 90, 20));
+        jPanel1.add(JLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, 90, 20));
 
         GraphicCardCosto.setEditable(false);
         GraphicCardCosto.setBackground(new java.awt.Color(226, 226, 226));
@@ -761,47 +760,47 @@ public class Apple extends javax.swing.JFrame {
                 GraphicCardCostoActionPerformed(evt);
             }
         });
-        jPanel1.add(GraphicCardCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(680, 240, 80, 20));
+        jPanel1.add(GraphicCardCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 240, 80, 20));
 
         GraphicsCardBar.setBackground(new java.awt.Color(204, 204, 204));
         GraphicsCardBar.setMaximum(25);
         GraphicsCardBar.setToolTipText("");
-        jPanel1.add(GraphicsCardBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 210, 160, 30));
+        jPanel1.add(GraphicsCardBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 210, 160, 30));
 
         JLabel18.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
         JLabel18.setForeground(new java.awt.Color(0, 0, 0));
         JLabel18.setText("Graphics Card:");
-        jPanel1.add(JLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 190, 130, 20));
+        jPanel1.add(JLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, 130, 20));
 
-        JLabel19.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        JLabel19.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         JLabel19.setForeground(new java.awt.Color(0, 0, 0));
         JLabel19.setText("Costos:");
-        jPanel1.add(JLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 240, 90, 20));
+        jPanel1.add(JLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 90, 20));
 
-        JLabel20.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
+        JLabel20.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
         JLabel20.setForeground(new java.awt.Color(0, 0, 0));
         JLabel20.setText("Costos:");
-        jPanel1.add(JLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 240, 90, 20));
+        jPanel1.add(JLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, 90, 20));
 
-        jLabel10.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Estado PM:");
-        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 340, 150, 30));
+        jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 150, 30));
 
-        jLabel11.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("CPU:");
-        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 470, 90, 20));
+        jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 470, 90, 20));
 
-        jLabel14.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("RAM:");
-        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 500, 90, 20));
+        jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 500, 90, 20));
 
-        jLabel13.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
+        jLabel13.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
         jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Base:");
-        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 440, 90, 20));
+        jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, 90, 20));
 
         Rojo2.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
         Rojo2.setForeground(new java.awt.Color(255, 102, 102));
@@ -848,10 +847,10 @@ public class Apple extends javax.swing.JFrame {
         });
         jPanel1.add(Amarillo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 50, 50));
 
-        jLabel12.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
+        jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
         jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Estado Director:");
-        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 460, 150, 30));
+        jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, 150, 30));
 
         GraphicCardProduc.setEditable(false);
         GraphicCardProduc.setBackground(new java.awt.Color(226, 226, 226));
@@ -866,7 +865,7 @@ public class Apple extends javax.swing.JFrame {
                 GraphicCardProducActionPerformed(evt);
             }
         });
-        jPanel1.add(GraphicCardProduc, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 190, 40, 20));
+        jPanel1.add(GraphicCardProduc, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 190, 40, 20));
 
         EstandarProduc.setEditable(false);
         EstandarProduc.setBackground(new java.awt.Color(226, 226, 226));
@@ -881,7 +880,7 @@ public class Apple extends javax.swing.JFrame {
                 EstandarProducActionPerformed(evt);
             }
         });
-        jPanel1.add(EstandarProduc, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 290, 40, 20));
+        jPanel1.add(EstandarProduc, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 290, 40, 20));
 
         GraficaProduc.setEditable(false);
         GraficaProduc.setBackground(new java.awt.Color(226, 226, 226));
@@ -896,7 +895,7 @@ public class Apple extends javax.swing.JFrame {
                 GraficaProducActionPerformed(evt);
             }
         });
-        jPanel1.add(GraficaProduc, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 310, 40, 20));
+        jPanel1.add(GraficaProduc, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 310, 40, 20));
 
         jTextField15.setEditable(false);
         jTextField15.setBackground(new java.awt.Color(255, 255, 255));
@@ -921,7 +920,7 @@ public class Apple extends javax.swing.JFrame {
                 jTextField13ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 390, 280, 30));
+        jPanel1.add(jTextField13, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 390, 280, 30));
 
         jTextField12.setEditable(false);
         jTextField12.setBackground(new java.awt.Color(255, 255, 255));
@@ -932,7 +931,7 @@ public class Apple extends javax.swing.JFrame {
                 jTextField12ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 390, 400, 150));
+        jPanel1.add(jTextField12, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 390, 400, 150));
 
         jTextField11.setEditable(false);
         jTextField11.setBackground(new java.awt.Color(204, 204, 204));
@@ -946,7 +945,7 @@ public class Apple extends javax.swing.JFrame {
                 jTextField11ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 100, -1));
+        jPanel1.add(jTextField11, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 270, 100, -1));
 
         jTextField10.setEditable(false);
         jTextField10.setBackground(new java.awt.Color(255, 255, 255));
@@ -959,7 +958,7 @@ public class Apple extends javax.swing.JFrame {
                 jTextField10ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 270, 160, 70));
+        jPanel1.add(jTextField10, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 270, 160, 70));
 
         jTextField9.setEditable(false);
         jTextField9.setBackground(new java.awt.Color(204, 204, 204));
@@ -973,7 +972,7 @@ public class Apple extends javax.swing.JFrame {
                 jTextField9ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 350, 280, 30));
+        jPanel1.add(jTextField9, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 350, 280, 30));
 
         jTextField8.setEditable(false);
         jTextField8.setBackground(new java.awt.Color(255, 255, 255));
@@ -984,7 +983,7 @@ public class Apple extends javax.swing.JFrame {
                 jTextField8ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 100, 400, 260));
+        jPanel1.add(jTextField8, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 100, 400, 260));
 
         jTextField6.setEditable(false);
         jTextField6.setBackground(new java.awt.Color(204, 204, 204));
@@ -998,7 +997,7 @@ public class Apple extends javax.swing.JFrame {
                 jTextField6ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 260, 280, 30));
+        jPanel1.add(jTextField6, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 260, 280, 30));
 
         jTextField1.setEditable(false);
         jTextField1.setBackground(new java.awt.Color(204, 204, 204));
@@ -1012,18 +1011,7 @@ public class Apple extends javax.swing.JFrame {
                 jTextField1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 300, 280, 30));
-
-        jTextField2.setBackground(new java.awt.Color(153, 153, 153));
-        jTextField2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
-        jTextField2.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
-        jTextField2.setFocusable(false);
-        jTextField2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField2ActionPerformed(evt);
-            }
-        });
-        jPanel1.add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 60, 820, 10));
+        jPanel1.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 300, 280, 30));
 
         jTextField4.setEditable(false);
         jTextField4.setBackground(new java.awt.Color(255, 255, 255));
@@ -1034,7 +1022,7 @@ public class Apple extends javax.swing.JFrame {
                 jTextField4ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 300, 180));
+        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 300, 180));
 
         jTextField5.setEditable(false);
         jTextField5.setBackground(new java.awt.Color(255, 255, 255));
@@ -1045,7 +1033,7 @@ public class Apple extends javax.swing.JFrame {
                 jTextField5ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 320, 300, 220));
+        jPanel1.add(jTextField5, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 320, 300, 220));
 
         jTextField3.setEditable(false);
         jTextField3.setBackground(new java.awt.Color(204, 204, 204));
@@ -1067,7 +1055,7 @@ public class Apple extends javax.swing.JFrame {
                 jTextField7ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, 320, 470));
+        jPanel1.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 80, 320, 470));
 
         jTextField14.setEditable(false);
         jTextField14.setBackground(new java.awt.Color(204, 204, 204));
@@ -1078,7 +1066,7 @@ public class Apple extends javax.swing.JFrame {
                 jTextField14ActionPerformed(evt);
             }
         });
-        jPanel1.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 80, 420, 470));
+        jPanel1.add(jTextField14, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 80, 420, 470));
 
         getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 620));
 
@@ -1092,10 +1080,6 @@ public class Apple extends javax.swing.JFrame {
     private void VerdeMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_VerdeMouseExited
         // TODO add your handling code here:
     }//GEN-LAST:event_VerdeMouseExited
-
-    private void jTextField2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField2ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_jTextField2ActionPerformed
 
     private void jTextField4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField4ActionPerformed
         // TODO add your handling code here:
@@ -1475,7 +1459,6 @@ public class Apple extends javax.swing.JFrame {
     private javax.swing.JTextField jTextField13;
     private javax.swing.JTextField jTextField14;
     private javax.swing.JTextField jTextField15;
-    private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
