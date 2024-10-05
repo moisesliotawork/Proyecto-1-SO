@@ -151,7 +151,9 @@ public class Dell extends javax.swing.JFrame {
         jButton1.setText("⬅");
         jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 255, 255), new java.awt.Color(0, 116, 185)));
         jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
-        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, -1, 60));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Dell.png"))); // NOI18N
+        jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, 100, 60));
 
         jTextField1.setBackground(new java.awt.Color(0, 125, 184));
         jTextField1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
