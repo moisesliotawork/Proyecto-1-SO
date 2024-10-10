@@ -7,6 +7,7 @@ package Store;
 import Enums.CompanyEnum;
 import static Enums.CompanyEnum.Apple;
 import static Enums.CompanyEnum.Dell;
+import com.google.gson.Gson;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
