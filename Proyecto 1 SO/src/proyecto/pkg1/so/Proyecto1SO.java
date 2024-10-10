@@ -4,6 +4,8 @@
  */
 package proyecto.pkg1.so;
 
+import GUI.Menu;
+
 /**
  *
  * @author vickysaldivia
@@ -15,6 +17,10 @@ public class Proyecto1SO {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        Menu interfaz = new Menu();
+        interfaz.setResizable(false);
+        interfaz.setLocationRelativeTo(null);  
+        interfaz.setVisible(true);
     }
     
 }
