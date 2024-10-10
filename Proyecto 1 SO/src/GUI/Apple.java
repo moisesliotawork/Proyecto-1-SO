@@ -1135,7 +1135,10 @@ public class Apple extends javax.swing.JFrame {
 
     private void configMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_configMouseClicked
         // TODO add your handling code here:
-        JOptionPane.showMessageDialog(null, "Configuración de trabajadores");
+        VEjecApple valoresEjecucion = new VEjecApple();
+        valoresEjecucion.setLocationRelativeTo(null);
+        valoresEjecucion.setResizable(false);
+        valoresEjecucion.setVisible(true);
     }//GEN-LAST:event_configMouseClicked
 
     private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed

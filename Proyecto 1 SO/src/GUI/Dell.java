@@ -150,23 +150,43 @@ public class Dell extends javax.swing.JFrame {
         jButton1.setForeground(new java.awt.Color(255, 255, 255));
         jButton1.setText("⬅");
         jButton1.setBorder(javax.swing.BorderFactory.createEtchedBorder(new java.awt.Color(255, 255, 255), new java.awt.Color(0, 116, 185)));
+        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jButton1MouseClicked(evt);
+            }
+        });
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         jPanel4.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Imagenes/Dell.png"))); // NOI18N
         jPanel4.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 0, 100, 60));
 
+        jTextField1.setEditable(false);
         jTextField1.setBackground(new java.awt.Color(0, 125, 184));
         jTextField1.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jTextField1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField1.setText("Simulación Dell");
         jTextField1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.blue, java.awt.Color.blue));
+        jTextField1.setFocusable(false);
         jPanel4.add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, 400, 60));
 
+        jTextField7.setEditable(false);
         jTextField7.setBackground(new java.awt.Color(0, 125, 184));
         jTextField7.setFont(new java.awt.Font("SansSerif", 1, 24)); // NOI18N
         jTextField7.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField7.setText("Configuración");
         jTextField7.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.blue, java.awt.Color.blue));
+        jTextField7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jTextField7.setFocusable(false);
+        jTextField7.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mousePressed(java.awt.event.MouseEvent evt) {
+                jTextField7MousePressed(evt);
+            }
+        });
         jPanel4.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 240, 60));
 
         jTextField8.setBackground(new java.awt.Color(174, 182, 196));
@@ -226,21 +246,25 @@ public class Dell extends javax.swing.JFrame {
         jPanel3.add(jPanel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
 
         JLabel6.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
+        JLabel6.setForeground(new java.awt.Color(51, 51, 51));
         JLabel6.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel6.setText("Utilidad:");
         jPanel3.add(JLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 210, 160, 30));
 
         JLabel7.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        JLabel7.setForeground(new java.awt.Color(51, 51, 51));
         JLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel7.setText("Costos:");
         jPanel3.add(JLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 170, 90, 20));
 
         JLabel8.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
+        JLabel8.setForeground(new java.awt.Color(51, 51, 51));
         JLabel8.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel8.setText("Costos:");
         jPanel3.add(JLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 170, 160, 30));
 
         CantidadTrabajadores.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        CantidadTrabajadores.setForeground(new java.awt.Color(51, 51, 51));
         CantidadTrabajadores.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         CantidadTrabajadores.setText("18");
         jPanel3.add(CantidadTrabajadores, new org.netbeans.lib.awtextra.AbsoluteConstraints(700, 380, 80, 30));
@@ -249,22 +273,26 @@ public class Dell extends javax.swing.JFrame {
         jPanel3.add(jSeparator1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 450, 340, 10));
 
         JLabel9.setFont(new java.awt.Font("SansSerif", 3, 14)); // NOI18N
+        JLabel9.setForeground(new java.awt.Color(51, 51, 51));
         JLabel9.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel9.setText("Días restantes para la entrega:");
         jPanel3.add(JLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 570, 250, 30));
 
         JLabel10.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        JLabel10.setForeground(new java.awt.Color(51, 51, 51));
         JLabel10.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel10.setText("Faltas:");
         jPanel3.add(JLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 370, 80, 20));
 
         JLabel11.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        JLabel11.setForeground(new java.awt.Color(51, 51, 51));
         JLabel11.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel11.setText("Descontado: $");
         jPanel3.add(JLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 370, 130, 20));
 
         BaseCostos.setBackground(new java.awt.Color(231, 235, 242));
         BaseCostos.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        BaseCostos.setForeground(new java.awt.Color(51, 51, 51));
         BaseCostos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         BaseCostos.setText("0");
         BaseCostos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -277,6 +305,7 @@ public class Dell extends javax.swing.JFrame {
 
         BaseCantidad.setBackground(new java.awt.Color(231, 235, 242));
         BaseCantidad.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        BaseCantidad.setForeground(new java.awt.Color(51, 51, 51));
         BaseCantidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         BaseCantidad.setText("0");
         BaseCantidad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -289,6 +318,7 @@ public class Dell extends javax.swing.JFrame {
 
         DescontadoPM.setBackground(new java.awt.Color(231, 235, 242));
         DescontadoPM.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        DescontadoPM.setForeground(new java.awt.Color(51, 51, 51));
         DescontadoPM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         DescontadoPM.setText("0");
         DescontadoPM.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -296,6 +326,7 @@ public class Dell extends javax.swing.JFrame {
 
         FaltasPM.setBackground(new java.awt.Color(231, 235, 242));
         FaltasPM.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        FaltasPM.setForeground(new java.awt.Color(51, 51, 51));
         FaltasPM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         FaltasPM.setText("0");
         FaltasPM.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -303,43 +334,51 @@ public class Dell extends javax.swing.JFrame {
 
         EstadosPM.setBackground(new java.awt.Color(231, 235, 242));
         EstadosPM.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        EstadosPM.setForeground(new java.awt.Color(51, 51, 51));
         EstadosPM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         EstadosPM.setText("0");
         EstadosPM.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
         jPanel3.add(EstadosPM, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 330, 130, 20));
 
         JLabel16.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        JLabel16.setForeground(new java.awt.Color(51, 51, 51));
         JLabel16.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel16.setText("Base:");
         jPanel3.add(JLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 120, 70, 20));
 
         JLabel17.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        JLabel17.setForeground(new java.awt.Color(51, 51, 51));
         JLabel17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel17.setText("CPU:");
         jPanel3.add(JLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 200, 70, 20));
 
         JLabel19.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        JLabel19.setForeground(new java.awt.Color(51, 51, 51));
         JLabel19.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel19.setText("Costos:");
         jPanel3.add(JLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 250, 90, 20));
 
         JLabel21.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        JLabel21.setForeground(new java.awt.Color(51, 51, 51));
         JLabel21.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel21.setText("Costos:");
         jPanel3.add(JLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 330, 90, 20));
 
         JLabel23.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        JLabel23.setForeground(new java.awt.Color(51, 51, 51));
         JLabel23.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel23.setText("Tarjeta Gráfica:");
         jPanel3.add(JLabel23, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 330, 100, 20));
 
         JLabel27.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        JLabel27.setForeground(new java.awt.Color(51, 51, 51));
         JLabel27.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel27.setText("Base:");
         jPanel3.add(JLabel27, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 440, 70, 20));
 
         BaseTrab.setBackground(new java.awt.Color(231, 235, 242));
         BaseTrab.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        BaseTrab.setForeground(new java.awt.Color(51, 51, 51));
         BaseTrab.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         BaseTrab.setText("0");
         BaseTrab.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -352,6 +391,7 @@ public class Dell extends javax.swing.JFrame {
 
         PowerSupplyCostos1.setBackground(new java.awt.Color(231, 235, 242));
         PowerSupplyCostos1.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        PowerSupplyCostos1.setForeground(new java.awt.Color(51, 51, 51));
         PowerSupplyCostos1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PowerSupplyCostos1.setText("0");
         PowerSupplyCostos1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -363,12 +403,14 @@ public class Dell extends javax.swing.JFrame {
         jPanel3.add(PowerSupplyCostos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(690, 250, 70, 20));
 
         JLabel24.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        JLabel24.setForeground(new java.awt.Color(51, 51, 51));
         JLabel24.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel24.setText("Graphics Card:");
         jPanel3.add(JLabel24, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 200, 110, 20));
 
         CompGraficaCantidad.setBackground(new java.awt.Color(231, 235, 242));
         CompGraficaCantidad.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        CompGraficaCantidad.setForeground(new java.awt.Color(51, 51, 51));
         CompGraficaCantidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         CompGraficaCantidad.setText("0");
         CompGraficaCantidad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -381,6 +423,7 @@ public class Dell extends javax.swing.JFrame {
 
         CompEstandarCantidad.setBackground(new java.awt.Color(231, 235, 242));
         CompEstandarCantidad.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        CompEstandarCantidad.setForeground(new java.awt.Color(51, 51, 51));
         CompEstandarCantidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         CompEstandarCantidad.setText("0");
         CompEstandarCantidad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -393,6 +436,7 @@ public class Dell extends javax.swing.JFrame {
 
         GraphicsCardCantidad.setBackground(new java.awt.Color(231, 235, 242));
         GraphicsCardCantidad.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        GraphicsCardCantidad.setForeground(new java.awt.Color(51, 51, 51));
         GraphicsCardCantidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         GraphicsCardCantidad.setText("0");
         GraphicsCardCantidad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -409,6 +453,7 @@ public class Dell extends javax.swing.JFrame {
 
         PowerSupplyCostos.setBackground(new java.awt.Color(231, 235, 242));
         PowerSupplyCostos.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        PowerSupplyCostos.setForeground(new java.awt.Color(51, 51, 51));
         PowerSupplyCostos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PowerSupplyCostos.setText("0");
         PowerSupplyCostos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -425,6 +470,7 @@ public class Dell extends javax.swing.JFrame {
 
         PowerSupplyCantidad.setBackground(new java.awt.Color(231, 235, 242));
         PowerSupplyCantidad.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        PowerSupplyCantidad.setForeground(new java.awt.Color(51, 51, 51));
         PowerSupplyCantidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PowerSupplyCantidad.setText("0");
         PowerSupplyCantidad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -436,12 +482,14 @@ public class Dell extends javax.swing.JFrame {
         jPanel3.add(PowerSupplyCantidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 120, 50, 20));
 
         JLabel22.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        JLabel22.setForeground(new java.awt.Color(51, 51, 51));
         JLabel22.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel22.setText("Power Supply: ");
         jPanel3.add(JLabel22, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 120, 110, 20));
 
         RAMCostos.setBackground(new java.awt.Color(231, 235, 242));
         RAMCostos.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        RAMCostos.setForeground(new java.awt.Color(51, 51, 51));
         RAMCostos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         RAMCostos.setText("0");
         RAMCostos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -457,12 +505,14 @@ public class Dell extends javax.swing.JFrame {
         jPanel3.add(RAMBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 300, -1, 30));
 
         JLabel20.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        JLabel20.setForeground(new java.awt.Color(51, 51, 51));
         JLabel20.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel20.setText("RAM:");
         jPanel3.add(JLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 280, 70, 20));
 
         RAMCantidad.setBackground(new java.awt.Color(231, 235, 242));
         RAMCantidad.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        RAMCantidad.setForeground(new java.awt.Color(51, 51, 51));
         RAMCantidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         RAMCantidad.setText("0");
         RAMCantidad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -475,6 +525,7 @@ public class Dell extends javax.swing.JFrame {
 
         CPUCantidad.setBackground(new java.awt.Color(231, 235, 242));
         CPUCantidad.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        CPUCantidad.setForeground(new java.awt.Color(51, 51, 51));
         CPUCantidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         CPUCantidad.setText("0");
         CPUCantidad.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -490,12 +541,14 @@ public class Dell extends javax.swing.JFrame {
         jPanel3.add(CPUBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 220, -1, 30));
 
         JLabel18.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        JLabel18.setForeground(new java.awt.Color(51, 51, 51));
         JLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         JLabel18.setText("0");
         jPanel3.add(JLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 570, 390, 30));
 
         CPUCostos.setBackground(new java.awt.Color(231, 235, 242));
         CPUCostos.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        CPUCostos.setForeground(new java.awt.Color(51, 51, 51));
         CPUCostos.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         CPUCostos.setText("0");
         CPUCostos.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -508,6 +561,7 @@ public class Dell extends javax.swing.JFrame {
 
         UtilidadValor.setBackground(new java.awt.Color(231, 235, 242));
         UtilidadValor.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        UtilidadValor.setForeground(new java.awt.Color(51, 51, 51));
         UtilidadValor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         UtilidadValor.setText("0");
         UtilidadValor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -515,6 +569,7 @@ public class Dell extends javax.swing.JFrame {
 
         CostosValor.setBackground(new java.awt.Color(231, 235, 242));
         CostosValor.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        CostosValor.setForeground(new java.awt.Color(51, 51, 51));
         CostosValor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         CostosValor.setText("0");
         CostosValor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -522,51 +577,60 @@ public class Dell extends javax.swing.JFrame {
 
         GananciasValor.setBackground(new java.awt.Color(231, 235, 242));
         GananciasValor.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        GananciasValor.setForeground(new java.awt.Color(51, 51, 51));
         GananciasValor.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         GananciasValor.setText("0");
         GananciasValor.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
         jPanel3.add(GananciasValor, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 130, 160, 30));
 
         JLabel12.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        JLabel12.setForeground(new java.awt.Color(51, 51, 51));
         JLabel12.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel12.setText("Sueldo acumulado: ");
         jPanel3.add(JLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, 160, 20));
 
         SueldoPM.setBackground(new java.awt.Color(231, 235, 242));
         SueldoPM.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        SueldoPM.setForeground(new java.awt.Color(51, 51, 51));
         SueldoPM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         SueldoPM.setText("0");
         SueldoPM.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
         jPanel3.add(SueldoPM, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 410, 160, 20));
 
         JLabel13.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        JLabel13.setForeground(new java.awt.Color(51, 51, 51));
         JLabel13.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel13.setText("Sueldo acumulado: ");
         jPanel3.add(JLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 160, 20));
 
         SueldoDirector.setBackground(new java.awt.Color(231, 235, 242));
         SueldoDirector.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        SueldoDirector.setForeground(new java.awt.Color(51, 51, 51));
         SueldoDirector.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         SueldoDirector.setText("0");
         SueldoDirector.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
         jPanel3.add(SueldoDirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 490, 160, 20));
 
         JLabel15.setFont(new java.awt.Font("SansSerif", 1, 20)); // NOI18N
+        JLabel15.setForeground(new java.awt.Color(51, 51, 51));
         JLabel15.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel15.setText("Ganancias:");
         jPanel3.add(JLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 130, 220, 30));
 
         JLabel14.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        JLabel14.setForeground(new java.awt.Color(51, 51, 51));
         JLabel14.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel14.setText("Estado Director:");
         jPanel3.add(JLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 460, 130, 20));
 
         JLabel25.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        JLabel25.setForeground(new java.awt.Color(51, 51, 51));
         JLabel25.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel25.setText("Costos:");
         jPanel3.add(JLabel25, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 170, 90, 20));
 
         JLabel26.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        JLabel26.setForeground(new java.awt.Color(51, 51, 51));
         JLabel26.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel26.setText("Estándar:");
         jPanel3.add(JLabel26, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 305, 90, -1));
@@ -577,28 +641,33 @@ public class Dell extends javax.swing.JFrame {
 
         EstadoDirector.setBackground(new java.awt.Color(231, 235, 242));
         EstadoDirector.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        EstadoDirector.setForeground(new java.awt.Color(51, 51, 51));
         EstadoDirector.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         EstadoDirector.setText("0");
         EstadoDirector.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
         jPanel3.add(EstadoDirector, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 460, 130, 20));
 
         JLabel28.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        JLabel28.setForeground(new java.awt.Color(51, 51, 51));
         JLabel28.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel28.setText("Power Supply:");
         jPanel3.add(JLabel28, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 440, 130, 20));
 
         JLabel29.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        JLabel29.setForeground(new java.awt.Color(51, 51, 51));
         JLabel29.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel29.setText("RAM:");
         jPanel3.add(JLabel29, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 500, 70, 20));
 
         JLabel30.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        JLabel30.setForeground(new java.awt.Color(51, 51, 51));
         JLabel30.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel30.setText("CPU:");
         jPanel3.add(JLabel30, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 470, 70, 20));
 
         GraphicsCardTrab1.setBackground(new java.awt.Color(231, 235, 242));
         GraphicsCardTrab1.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        GraphicsCardTrab1.setForeground(new java.awt.Color(51, 51, 51));
         GraphicsCardTrab1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         GraphicsCardTrab1.setText("0");
         GraphicsCardTrab1.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -610,22 +679,26 @@ public class Dell extends javax.swing.JFrame {
         jPanel3.add(GraphicsCardTrab1, new org.netbeans.lib.awtextra.AbsoluteConstraints(710, 500, 60, 20));
 
         JLabel32.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        JLabel32.setForeground(new java.awt.Color(51, 51, 51));
         JLabel32.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel32.setText("Assembler:");
         jPanel3.add(JLabel32, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 500, 130, 20));
 
         JLabel31.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        JLabel31.setForeground(new java.awt.Color(51, 51, 51));
         JLabel31.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel31.setText("Graphics Card:");
         jPanel3.add(JLabel31, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 470, 130, 20));
 
         JLabel33.setFont(new java.awt.Font("SansSerif", 1, 16)); // NOI18N
+        JLabel33.setForeground(new java.awt.Color(51, 51, 51));
         JLabel33.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel33.setText("Estado PM:");
         jPanel3.add(JLabel33, new org.netbeans.lib.awtextra.AbsoluteConstraints(80, 330, 130, 20));
 
         GraphicsCardTrab.setBackground(new java.awt.Color(231, 235, 242));
         GraphicsCardTrab.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        GraphicsCardTrab.setForeground(new java.awt.Color(51, 51, 51));
         GraphicsCardTrab.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         GraphicsCardTrab.setText("0");
         GraphicsCardTrab.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -638,6 +711,7 @@ public class Dell extends javax.swing.JFrame {
 
         PowerSupplyTrab.setBackground(new java.awt.Color(231, 235, 242));
         PowerSupplyTrab.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        PowerSupplyTrab.setForeground(new java.awt.Color(51, 51, 51));
         PowerSupplyTrab.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PowerSupplyTrab.setText("0");
         PowerSupplyTrab.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -650,6 +724,7 @@ public class Dell extends javax.swing.JFrame {
 
         RAMTrab.setBackground(new java.awt.Color(231, 235, 242));
         RAMTrab.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        RAMTrab.setForeground(new java.awt.Color(51, 51, 51));
         RAMTrab.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         RAMTrab.setText("0");
         RAMTrab.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -662,6 +737,7 @@ public class Dell extends javax.swing.JFrame {
 
         CPUTrab.setBackground(new java.awt.Color(231, 235, 242));
         CPUTrab.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        CPUTrab.setForeground(new java.awt.Color(51, 51, 51));
         CPUTrab.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         CPUTrab.setText("0");
         CPUTrab.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -673,6 +749,7 @@ public class Dell extends javax.swing.JFrame {
         jPanel3.add(CPUTrab, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 470, 60, 20));
 
         JLabel34.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
+        JLabel34.setForeground(new java.awt.Color(51, 51, 51));
         JLabel34.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         JLabel34.setText("Costos:");
         jPanel3.add(JLabel34, new org.netbeans.lib.awtextra.AbsoluteConstraints(430, 250, 90, 20));
@@ -689,6 +766,7 @@ public class Dell extends javax.swing.JFrame {
 
         jTextField35.setBackground(new java.awt.Color(174, 182, 196));
         jTextField35.setFont(new java.awt.Font("SansSerif", 1, 11)); // NOI18N
+        jTextField35.setForeground(new java.awt.Color(51, 51, 51));
         jTextField35.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField35.setText("  Computadoras");
         jTextField35.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.darkGray));
@@ -701,6 +779,7 @@ public class Dell extends javax.swing.JFrame {
 
         jTextField29.setBackground(new java.awt.Color(174, 182, 196));
         jTextField29.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jTextField29.setForeground(new java.awt.Color(51, 51, 51));
         jTextField29.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField29.setText("  Información de Producción");
         jTextField29.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.darkGray));
@@ -723,6 +802,7 @@ public class Dell extends javax.swing.JFrame {
 
         jTextField27.setBackground(new java.awt.Color(174, 182, 196));
         jTextField27.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jTextField27.setForeground(new java.awt.Color(51, 51, 51));
         jTextField27.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField27.setText("  Project Manager/Director");
         jTextField27.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.darkGray));
@@ -745,6 +825,7 @@ public class Dell extends javax.swing.JFrame {
 
         jTextField37.setEditable(false);
         jTextField37.setBackground(new java.awt.Color(231, 235, 242));
+        jTextField37.setForeground(new java.awt.Color(51, 51, 51));
         jTextField37.setBorder(javax.swing.BorderFactory.createEtchedBorder(null, new java.awt.Color(0, 0, 0)));
         jTextField37.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -755,6 +836,7 @@ public class Dell extends javax.swing.JFrame {
 
         jTextField28.setBackground(new java.awt.Color(174, 182, 196));
         jTextField28.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jTextField28.setForeground(new java.awt.Color(51, 51, 51));
         jTextField28.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField28.setText("  Estadísticas");
         jTextField28.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.darkGray));
@@ -767,6 +849,7 @@ public class Dell extends javax.swing.JFrame {
 
         jTextField21.setBackground(new java.awt.Color(174, 182, 196));
         jTextField21.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jTextField21.setForeground(new java.awt.Color(51, 51, 51));
         jTextField21.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField21.setText(" —");
         jTextField21.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.darkGray));
@@ -799,6 +882,7 @@ public class Dell extends javax.swing.JFrame {
 
         jTextField20.setBackground(new java.awt.Color(174, 182, 196));
         jTextField20.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jTextField20.setForeground(new java.awt.Color(51, 51, 51));
         jTextField20.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField20.setText(" ▢");
         jTextField20.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.darkGray));
@@ -811,6 +895,7 @@ public class Dell extends javax.swing.JFrame {
 
         jTextField19.setBackground(new java.awt.Color(174, 182, 196));
         jTextField19.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jTextField19.setForeground(new java.awt.Color(51, 51, 51));
         jTextField19.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField19.setText(" X");
         jTextField19.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.darkGray));
@@ -832,6 +917,7 @@ public class Dell extends javax.swing.JFrame {
 
         jTextField5.setBackground(new java.awt.Color(174, 182, 196));
         jTextField5.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jTextField5.setForeground(new java.awt.Color(51, 51, 51));
         jTextField5.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField5.setText(" X");
         jTextField5.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.darkGray));
@@ -844,6 +930,7 @@ public class Dell extends javax.swing.JFrame {
 
         jTextField6.setBackground(new java.awt.Color(174, 182, 196));
         jTextField6.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jTextField6.setForeground(new java.awt.Color(51, 51, 51));
         jTextField6.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField6.setText(" ▢");
         jTextField6.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.darkGray));
@@ -856,6 +943,7 @@ public class Dell extends javax.swing.JFrame {
 
         jTextField4.setBackground(new java.awt.Color(174, 182, 196));
         jTextField4.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jTextField4.setForeground(new java.awt.Color(51, 51, 51));
         jTextField4.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField4.setText(" —");
         jTextField4.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.darkGray));
@@ -886,6 +974,7 @@ public class Dell extends javax.swing.JFrame {
 
         jTextField13.setBackground(new java.awt.Color(174, 182, 196));
         jTextField13.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jTextField13.setForeground(new java.awt.Color(51, 51, 51));
         jTextField13.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField13.setText(" X");
         jTextField13.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.darkGray));
@@ -898,6 +987,7 @@ public class Dell extends javax.swing.JFrame {
 
         jTextField14.setBackground(new java.awt.Color(174, 182, 196));
         jTextField14.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jTextField14.setForeground(new java.awt.Color(51, 51, 51));
         jTextField14.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField14.setText(" ▢");
         jTextField14.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.darkGray));
@@ -910,6 +1000,7 @@ public class Dell extends javax.swing.JFrame {
 
         jTextField15.setBackground(new java.awt.Color(174, 182, 196));
         jTextField15.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jTextField15.setForeground(new java.awt.Color(51, 51, 51));
         jTextField15.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField15.setText(" —");
         jTextField15.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.darkGray));
@@ -940,6 +1031,7 @@ public class Dell extends javax.swing.JFrame {
 
         jTextField24.setBackground(new java.awt.Color(174, 182, 196));
         jTextField24.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jTextField24.setForeground(new java.awt.Color(51, 51, 51));
         jTextField24.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField24.setText(" —");
         jTextField24.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.darkGray));
@@ -952,6 +1044,7 @@ public class Dell extends javax.swing.JFrame {
 
         jTextField25.setBackground(new java.awt.Color(174, 182, 196));
         jTextField25.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jTextField25.setForeground(new java.awt.Color(51, 51, 51));
         jTextField25.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField25.setText(" ▢");
         jTextField25.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.darkGray));
@@ -964,6 +1057,7 @@ public class Dell extends javax.swing.JFrame {
 
         jTextField26.setBackground(new java.awt.Color(174, 182, 196));
         jTextField26.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jTextField26.setForeground(new java.awt.Color(51, 51, 51));
         jTextField26.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField26.setText(" X");
         jTextField26.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.darkGray));
@@ -994,6 +1088,7 @@ public class Dell extends javax.swing.JFrame {
 
         jTextField31.setBackground(new java.awt.Color(174, 182, 196));
         jTextField31.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jTextField31.setForeground(new java.awt.Color(51, 51, 51));
         jTextField31.setHorizontalAlignment(javax.swing.JTextField.LEFT);
         jTextField31.setText("  Trabajadores");
         jTextField31.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.darkGray));
@@ -1006,6 +1101,7 @@ public class Dell extends javax.swing.JFrame {
 
         jTextField32.setBackground(new java.awt.Color(174, 182, 196));
         jTextField32.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jTextField32.setForeground(new java.awt.Color(51, 51, 51));
         jTextField32.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField32.setText(" —");
         jTextField32.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.darkGray));
@@ -1018,6 +1114,7 @@ public class Dell extends javax.swing.JFrame {
 
         jTextField33.setBackground(new java.awt.Color(174, 182, 196));
         jTextField33.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jTextField33.setForeground(new java.awt.Color(51, 51, 51));
         jTextField33.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField33.setText(" ▢");
         jTextField33.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.darkGray));
@@ -1030,6 +1127,7 @@ public class Dell extends javax.swing.JFrame {
 
         jTextField34.setBackground(new java.awt.Color(174, 182, 196));
         jTextField34.setFont(new java.awt.Font("SansSerif", 1, 13)); // NOI18N
+        jTextField34.setForeground(new java.awt.Color(51, 51, 51));
         jTextField34.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         jTextField34.setText(" X");
         jTextField34.setBorder(javax.swing.BorderFactory.createEtchedBorder(java.awt.Color.white, java.awt.Color.darkGray));
@@ -1049,7 +1147,7 @@ public class Dell extends javax.swing.JFrame {
         });
         jPanel3.add(jTextField30, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 380, 390, 170));
 
-        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
+        getContentPane().add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, 620));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -1281,6 +1379,26 @@ public class Dell extends javax.swing.JFrame {
     private void jTextField30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField30ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField30ActionPerformed
+
+    private void jTextField7MousePressed(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTextField7MousePressed
+        // TODO add your handling code here:
+        VEjecDell valoresEjecucion = new VEjecDell();
+        valoresEjecucion.setLocationRelativeTo(null);
+        valoresEjecucion.setResizable(false);
+        valoresEjecucion.setVisible(true);
+    }//GEN-LAST:event_jTextField7MousePressed
+
+    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1MouseClicked
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+        Menu ventana = new Menu();
+        this.setVisible(false);
+        ventana.setLocationRelativeTo(null);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
