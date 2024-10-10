@@ -27,10 +27,6 @@ public class VEjecApple extends javax.swing.JFrame {
     private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
-        RestantesEntrega = new javax.swing.JSpinner();
-        jLabel17 = new javax.swing.JLabel();
-        DuracionDias = new javax.swing.JSpinner();
-        jLabel7 = new javax.swing.JLabel();
         WorkerBase = new javax.swing.JSpinner();
         WorkerCPU = new javax.swing.JSpinner();
         WorkerPSupply = new javax.swing.JSpinner();
@@ -46,7 +42,6 @@ public class VEjecApple extends javax.swing.JFrame {
         WorkerGCard = new javax.swing.JSpinner();
         jLabel6 = new javax.swing.JLabel();
         jTextField3 = new javax.swing.JTextField();
-        jTextField4 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -54,24 +49,6 @@ public class VEjecApple extends javax.swing.JFrame {
 
         jPanel1.setBackground(new java.awt.Color(231, 240, 249));
         jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        RestantesEntrega.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jPanel1.add(RestantesEntrega, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 490, 260, -1));
-
-        jLabel17.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel17.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel17.setText("  Días restantes para la entrega: ");
-        jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 460, 280, 40));
-
-        DuracionDias.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
-        jPanel1.add(DuracionDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 430, 260, -1));
-
-        jLabel7.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(51, 51, 51));
-        jLabel7.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        jLabel7.setText("  Duración de días:");
-        jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 400, 290, 30));
 
         WorkerBase.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         jPanel1.add(WorkerBase, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 130, -1));
@@ -149,12 +126,6 @@ public class VEjecApple extends javax.swing.JFrame {
         jTextField3.setFocusable(false);
         jPanel1.add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, 300, 330));
 
-        jTextField4.setEditable(false);
-        jTextField4.setBackground(new java.awt.Color(255, 255, 255));
-        jTextField4.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.black, java.awt.Color.black));
-        jTextField4.setFocusable(false);
-        jPanel1.add(jTextField4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 390, 300, 140));
-
         jButton1.setBackground(new java.awt.Color(0, 102, 204));
         jButton1.setText("Ocultar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -164,7 +135,7 @@ public class VEjecApple extends javax.swing.JFrame {
         });
         jPanel1.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 90, -1));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 550));
+        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 360, 410));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -211,9 +182,7 @@ public class VEjecApple extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JSpinner DuracionDias;
     private javax.swing.JTextField NombreCompany;
-    private javax.swing.JSpinner RestantesEntrega;
     private javax.swing.JSpinner WorkerAssembler;
     private javax.swing.JSpinner WorkerBase;
     private javax.swing.JSpinner WorkerCPU;
@@ -222,16 +191,13 @@ public class VEjecApple extends javax.swing.JFrame {
     private javax.swing.JSpinner WorkerRAM;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel16;
-    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField jTextField3;
-    private javax.swing.JTextField jTextField4;
     // End of variables declaration//GEN-END:variables
 }
