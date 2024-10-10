@@ -22,6 +22,7 @@ public abstract class CompanyRules {
     protected float incomeStandard;
     protected float incomeGraphicsCard;
 
+    // Intervalo para ensamblar computadoras con tarjeta gráfica
     protected int computersToGraphicsCard;
     
     // Intervalo predeterminado entre lanzamientos de productos
