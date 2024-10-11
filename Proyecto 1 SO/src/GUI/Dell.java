@@ -23,41 +23,12 @@ import proyecto.pkg1.so.Global;
  */
 public class Dell extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Dell
-     */
+    private SimulacionDell simulacionDell;
+
     public Dell() {
         initComponents();
 
-        // Inicializar reglas y almacenamiento para Dell
-        DellRules dellRules = new DellRules();
-        Drive dellDrive = new Drive(0, 0, 0, 0, 0);
-        Global.daysBetweenReleases = 30;
-
-        // Número de empleados para cada tipo de trabajador
-        int numMotherboardProducers = Global.MotherboardProducersDell;
-        int numCPUProducers = Global.CPUProducerDell;
-        int numRAMProducers = Global.RAMProducersDell;
-        int numPowerSupplyProducers = Global.PowerSupplyProducersDell;
-        int numGPUProducers = Global.GPUProducersDell;
-        int numAssemblers = Global.AssemblersDell;
-
-        // Crear la compañía Dell
-        Company dellCompany = new Company(
-                numMotherboardProducers, numCPUProducers, numRAMProducers,
-                numPowerSupplyProducers, numGPUProducers, numAssemblers,
-                dellDrive, dellRules
-        );
-        // Iniciar simulación
-        SimulacionDell simulacion = new SimulacionDell(this, dellCompany);
-        simulacion.start();
-
-        this.BaseTrab.setText(String.valueOf(numMotherboardProducers));
-        this.PowerSupplyTrab.setText(String.valueOf(numPowerSupplyProducers));
-        this.CPUTrab.setText(String.valueOf(numCPUProducers));
-        this.RAMTrab.setText(String.valueOf(numRAMProducers));
-        this.GraphicsCardTrab.setText(String.valueOf(numGPUProducers));
-        this.GraphicsCardTrab1.setText(String.valueOf(numAssemblers));
+        iniciarSimulacionDell();
     }
 
     public void actualizarValores(int motherboards, int cpus, int rams, int powerSupplies, int gpus, int standardComputers, int computersWithGPU, int diasRestantes, double costos, String estadoPM, String estadoDirector, double sueldoPM, double sueldoDirector) {
@@ -67,6 +38,12 @@ public class Dell extends javax.swing.JFrame {
         RAMCantidad.setText(String.valueOf(rams));
         PowerSupplyCantidad.setText(String.valueOf(powerSupplies));
         GraphicsCardCantidad.setText(String.valueOf(gpus));
+
+        BaseBar.setValue(motherboards);
+        this.PowerSupplyBar.setValue(powerSupplies);
+        this.CPUBar.setValue(cpus);
+        this.RAMBar.setValue(rams);
+        this.GraphicsCardBar.setValue(gpus);
 
         // Actualizar computadoras ensambladas
         CompEstandarCantidad.setText(String.valueOf(standardComputers));
@@ -81,7 +58,7 @@ public class Dell extends javax.swing.JFrame {
         // Actualizar estado del PM y director
         EstadosPM.setText(estadoPM);
         EstadoDirector.setText(estadoDirector);
-        
+
         SueldoPM.setText(String.valueOf(sueldoPM));
         SueldoDirector.setText(String.valueOf(sueldoDirector));
     }
@@ -93,6 +70,71 @@ public class Dell extends javax.swing.JFrame {
     public void actualizarSueldos(float sueldoDirector, float sueldoPM) {
         SueldoDirector.setText(String.format("%.2f", sueldoDirector));
         SueldoPM.setText(String.format("%.2f", sueldoPM));
+    }
+
+    public void actualizarGananciaYUtilidad(double ganancia, double utilidad) {
+        // Actualizar los campos de ganancia y utilidad en la interfaz gráfica
+        this.GananciasValor.setText(String.format("%.2f", ganancia));
+        this.UtilidadValor.setText(String.format("%.2f%%", utilidad));  // Mostrar como porcentaje
+    }
+
+    public void actualizarCostosComponentes(double costoMotherboards, double costoCPUs, double costoRAM, double costoPowerSupply, double costoGPU) {
+        // Actualizar los costos en los JTextFields correspondientes de la interfaz
+        this.BaseCostos.setText(String.format("%.2f", costoMotherboards));
+        this.CPUCostos.setText(String.format("%.2f", costoCPUs));
+        this.RAMCostos.setText(String.format("%.2f", costoRAM));
+        this.PowerSupplyCostos.setText(String.format("%.2f", costoPowerSupply));
+        this.PowerSupplyCostos1.setText(String.format("%.2f", costoGPU));
+    }
+
+    // Método para iniciar la simulación de Dell
+    private void iniciarSimulacionDell() {
+        // Crear y configurar la simulación aquí
+        DellRules dellRules = new DellRules();
+        Drive dellDrive = new Drive(0, 0, 0, 0, 0);
+        Global.daysBetweenReleases = 30;
+
+        // Número de empleados de Dell (usar valores globales para Dell)
+        int numMotherboardProducers = Global.MotherboardProducersDell;
+        int numCPUProducers = Global.CPUProducerDell;
+        int numRAMProducers = Global.RAMProducersDell;
+        int numPowerSupplyProducers = Global.PowerSupplyProducersDell;
+        int numGPUProducers = Global.GPUProducersDell;
+        int numAssemblers = Global.AssemblersDell;
+
+        // Crear la compañía Dell
+        Company dellCompany = new Company(
+                numMotherboardProducers, numCPUProducers, numRAMProducers,
+                numPowerSupplyProducers, numGPUProducers, numAssemblers,
+                dellDrive, dellRules
+        );
+
+        // Crear e iniciar la simulación
+        simulacionDell = new SimulacionDell(this, dellCompany);
+        simulacionDell.start();
+
+        // Actualizar los campos de la interfaz gráfica de Dell
+        this.BaseTrab.setText(String.valueOf(numMotherboardProducers));
+        this.PowerSupplyTrab.setText(String.valueOf(numPowerSupplyProducers));
+        this.CPUTrab.setText(String.valueOf(numCPUProducers));
+        this.RAMTrab.setText(String.valueOf(numRAMProducers));
+        this.GraphicsCardTrab.setText(String.valueOf(numGPUProducers));
+        this.GraphicsCardTrab1.setText(String.valueOf(numAssemblers));
+    }
+
+    // Método para detener la simulación y todos los hilos
+    private void detenerHilosSimulacion() {
+        if (simulacionDell != null && simulacionDell.isAlive()) {
+            simulacionDell.detenerHilos();  // Llama al método detenerHilos() de SimulacionDell
+            simulacionDell.interrupt();  // Interrumpe el hilo de simulación
+        }
+    }
+
+    // Método que se ejecuta cuando el usuario quiere salir de la interfaz (por ejemplo, al cerrar o al presionar un botón)
+    private void salir() {
+        Global.daysBetweenReleases = 30;
+        detenerHilosSimulacion();  // Detener todos los hilos antes de salir
+        this.dispose();  // Cerrar la ventana
     }
 
     /**

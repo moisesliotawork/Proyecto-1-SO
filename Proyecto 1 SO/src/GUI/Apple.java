@@ -4,6 +4,9 @@
  */
 package GUI;
 
+import Companies.Company;
+import Rules.AppleRules;
+import Store.Drive;
 import java.awt.Color;
 import javax.accessibility.AccessibleContext;
 import javax.swing.JButton;
@@ -14,22 +17,117 @@ import javax.swing.JProgressBar;
 import javax.swing.JRootPane;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
+import proyecto.pkg1.so.Global;
+
 /**
  *
  * @author vickysaldivia
  */
 public class Apple extends javax.swing.JFrame {
 
-    /**
-     * Creates new form Apple
-     */
+    private SimulacionApple simulacionApple;
+    
     public Apple() {
         initComponents();
-        
+
+       iniciarSimulacionApple();
+
     }
 
+    public void actualizarValores(int motherboards, int cpus, int ram, int powerSupplies, int gpus,
+            int standardComputers, int computersWithGPU, int diasRestantes,
+            double costosActuales, String estadoPM, String estadoDirector,
+            double sueldoPM, double sueldoDirector) {
+        // Actualizar los valores de producción
+        PlacasProducidas.setText(String.valueOf(motherboards));
+        CPUProducidas.setText(String.valueOf(cpus));
+        RAMProducidas.setText(String.valueOf(ram));
+        PowerSupplyProduc.setText(String.valueOf(powerSupplies));
+        GraphicCardProduc.setText(String.valueOf(gpus));
+        EstandarProduc.setText(String.valueOf(standardComputers));
+        GraficaProduc.setText(String.valueOf(computersWithGPU));
+        
+        PlacaBar.setValue(motherboards);
+        this.PowerSupplyBar.setValue(powerSupplies);
+        this.CPUBar.setValue(cpus);
+        this.RAMBar.setValue(ram);
+        this.GraphicsCardBar.setValue(gpus);
+
+        // Actualizar los costos
+        Costos1.setText(String.valueOf(costosActuales));
+
+        // Actualizar el estado del PM y Director
+        EstadoPM1.setText(estadoPM);
+        EstadoD.setText(estadoDirector);
+
+        // Actualizar los sueldos
+        SueldoPM.setText(String.valueOf(sueldoPM));
+        SueldoD.setText(String.valueOf(sueldoDirector));
+
+        // Actualizar días restantes
+        dias.setText(String.valueOf(diasRestantes));  // Actualizar la etiqueta de días restantes
+    }
     
+    public void actualizarCostosComponentes(double costoMotherboards, double costoCPUs, double costoRAM, double costoPowerSupply, double costoGPU) {
+        // Actualizar los costos en los JTextFields correspondientes de la interfaz
+        this.CostoPlacas.setText(String.format("%.2f", costoMotherboards));
+        this.CostoCPU.setText(String.format("%.2f", costoCPUs));
+        this.CostoRAM.setText(String.format("%.2f", costoRAM));
+        this.PowerSupplyCosto.setText(String.format("%.2f", costoPowerSupply));
+        this.GraphicCardCosto.setText(String.format("%.2f", costoGPU));
+        
+        
+    }
     
+    // Método para iniciar la simulación de Apple
+    private void iniciarSimulacionApple() {
+        // Crear y configurar la simulación aquí
+        AppleRules appleRules = new AppleRules();
+        Drive appleDrive = new Drive(0, 0, 0, 0, 0);
+        Global.daysBetweenReleases = 30;
+
+        // Número de empleados de Apple (usar valores globales para Apple)
+        int numMotherboardProducers = Global.MotherboardProducersApple;
+        int numCPUProducers = Global.CPUProducerApple;
+        int numRAMProducers = Global.RAMProducersApple;
+        int numPowerSupplyProducers = Global.PowerSupplyProducersApple;
+        int numGPUProducers = Global.GPUProducersApple;
+        int numAssemblers = Global.AssemblersApple;
+
+        // Crear la compañía Apple
+        Company appleCompany = new Company(
+                numMotherboardProducers, numCPUProducers, numRAMProducers,
+                numPowerSupplyProducers, numGPUProducers, numAssemblers,
+                appleDrive, appleRules
+        );
+
+        // Crear e iniciar la simulación
+        simulacionApple = new SimulacionApple(this, appleCompany);
+        simulacionApple.start();
+        
+        // Actualizar los campos de la interfaz gráfica de Apple
+        this.TBase.setText(String.valueOf(numMotherboardProducers));
+        this.TBase1.setText(String.valueOf(numPowerSupplyProducers));
+        this.TCPU.setText(String.valueOf(numCPUProducers));
+        this.TRAM.setText(String.valueOf(numRAMProducers));
+        this.TCPU1.setText(String.valueOf(numGPUProducers));
+        this.TRAM1.setText(String.valueOf(numAssemblers));
+    }
+
+    // Método para detener la simulación y todos los hilos
+    private void detenerHilosSimulacion() {
+        if (simulacionApple != null && simulacionApple.isAlive()) {
+            simulacionApple.detenerHilos();  // Llama al método detenerHilos() de SimulacionApple
+            simulacionApple.interrupt();  // Interrumpe el hilo de simulación
+        }
+    }
+
+    // Método que se ejecuta cuando el usuario quiere salir de la interfaz (por ejemplo, al cerrar o al presionar un botón)
+    private void salir() {
+        Global.daysBetweenReleases = 30;
+        detenerHilosSimulacion();  // Detener todos los hilos antes de salir
+        //this.dispose();  // Cerrar la ventana
+    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -84,7 +182,7 @@ public class Apple extends javax.swing.JFrame {
         PlacasProducidas = new javax.swing.JTextField();
         PlacaBar = new javax.swing.JProgressBar();
         CostoPlacas = new javax.swing.JTextField();
-        JLabel21 = new javax.swing.JLabel();
+        dias = new javax.swing.JLabel();
         JLabel6 = new javax.swing.JLabel();
         JLabel11 = new javax.swing.JLabel();
         CPUProducidas = new javax.swing.JTextField();
@@ -199,7 +297,6 @@ public class Apple extends javax.swing.JFrame {
         Utilidad.setEditable(false);
         Utilidad.setBackground(new java.awt.Color(226, 226, 226));
         Utilidad.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        Utilidad.setForeground(new java.awt.Color(0, 0, 0));
         Utilidad.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Utilidad.setText("0");
         Utilidad.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -212,14 +309,12 @@ public class Apple extends javax.swing.JFrame {
         jPanel1.add(Utilidad, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 220, 140, 30));
 
         jLabel5.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel5.setForeground(new java.awt.Color(0, 0, 0));
         jLabel5.setText("Faltas:");
         jPanel1.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 380, 60, 30));
 
         FaltasPM1.setEditable(false);
         FaltasPM1.setBackground(new java.awt.Color(226, 226, 226));
         FaltasPM1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        FaltasPM1.setForeground(new java.awt.Color(0, 0, 0));
         FaltasPM1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         FaltasPM1.setText("0");
         FaltasPM1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -232,14 +327,12 @@ public class Apple extends javax.swing.JFrame {
         jPanel1.add(FaltasPM1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 380, 40, 30));
 
         jLabel6.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel6.setForeground(new java.awt.Color(0, 0, 0));
         jLabel6.setText("Descontado:  $");
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 380, 110, 30));
 
         DescontadoPM.setEditable(false);
         DescontadoPM.setBackground(new java.awt.Color(226, 226, 226));
         DescontadoPM.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        DescontadoPM.setForeground(new java.awt.Color(0, 0, 0));
         DescontadoPM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         DescontadoPM.setText("0");
         DescontadoPM.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -252,14 +345,12 @@ public class Apple extends javax.swing.JFrame {
         jPanel1.add(DescontadoPM, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 380, 50, 30));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel7.setForeground(new java.awt.Color(0, 0, 0));
         jLabel7.setText("Sueldo acumulado:");
         jPanel1.add(jLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 420, 150, 30));
 
         SueldoPM.setEditable(false);
         SueldoPM.setBackground(new java.awt.Color(226, 226, 226));
         SueldoPM.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        SueldoPM.setForeground(new java.awt.Color(0, 0, 0));
         SueldoPM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         SueldoPM.setText("0");
         SueldoPM.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -272,14 +363,12 @@ public class Apple extends javax.swing.JFrame {
         jPanel1.add(SueldoPM, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 420, 120, 30));
 
         jLabel8.setFont(new java.awt.Font("Arial", 3, 14)); // NOI18N
-        jLabel8.setForeground(new java.awt.Color(0, 0, 0));
         jLabel8.setText("Días restantes para la entrega:");
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 570, 250, 30));
 
         EstadoD.setEditable(false);
         EstadoD.setBackground(new java.awt.Color(226, 226, 226));
         EstadoD.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        EstadoD.setForeground(new java.awt.Color(0, 0, 0));
         EstadoD.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         EstadoD.setText("-");
         EstadoD.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -292,14 +381,12 @@ public class Apple extends javax.swing.JFrame {
         jPanel1.add(EstadoD, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 460, 140, 30));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel9.setForeground(new java.awt.Color(0, 0, 0));
         jLabel9.setText("Sueldo acumulado:");
         jPanel1.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 500, 150, 30));
 
         SueldoD.setEditable(false);
         SueldoD.setBackground(new java.awt.Color(226, 226, 226));
         SueldoD.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        SueldoD.setForeground(new java.awt.Color(0, 0, 0));
         SueldoD.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         SueldoD.setText("0");
         SueldoD.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -314,7 +401,6 @@ public class Apple extends javax.swing.JFrame {
         EstadoPM1.setEditable(false);
         EstadoPM1.setBackground(new java.awt.Color(226, 226, 226));
         EstadoPM1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        EstadoPM1.setForeground(new java.awt.Color(0, 0, 0));
         EstadoPM1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         EstadoPM1.setText("-");
         EstadoPM1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -329,7 +415,6 @@ public class Apple extends javax.swing.JFrame {
         GananciaBruta.setEditable(false);
         GananciaBruta.setBackground(new java.awt.Color(226, 226, 226));
         GananciaBruta.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        GananciaBruta.setForeground(new java.awt.Color(0, 0, 0));
         GananciaBruta.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         GananciaBruta.setText("0");
         GananciaBruta.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -344,7 +429,6 @@ public class Apple extends javax.swing.JFrame {
         Costos1.setEditable(false);
         Costos1.setBackground(new java.awt.Color(226, 226, 226));
         Costos1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        Costos1.setForeground(new java.awt.Color(0, 0, 0));
         Costos1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         Costos1.setText("0");
         Costos1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -357,17 +441,14 @@ public class Apple extends javax.swing.JFrame {
         jPanel1.add(Costos1, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 170, 140, 30));
 
         JLabel7.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        JLabel7.setForeground(new java.awt.Color(0, 0, 0));
         JLabel7.setText("Utilidad:");
         jPanel1.add(JLabel7, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, 100, 30));
 
         JLabel8.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        JLabel8.setForeground(new java.awt.Color(0, 0, 0));
         JLabel8.setText("Costos: ");
         jPanel1.add(JLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 170, 120, 30));
 
         jLabel4.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(0, 0, 0));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel4.setText("20");
         jPanel1.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 390, 120, 30));
@@ -463,34 +544,28 @@ public class Apple extends javax.swing.JFrame {
         jPanel1.add(Amarillo1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 60, 50, 60));
 
         JLabel9.setFont(new java.awt.Font("Arial", 1, 20)); // NOI18N
-        JLabel9.setForeground(new java.awt.Color(0, 0, 0));
         JLabel9.setText("Ganancias:");
         jPanel1.add(JLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 120, 140, 30));
 
         JLabel10.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
-        JLabel10.setForeground(new java.awt.Color(0, 0, 0));
         JLabel10.setText("Base:");
         jPanel1.add(JLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, 110, 20));
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel15.setForeground(new java.awt.Color(0, 0, 0));
         jLabel15.setText("Assembler:");
         jPanel1.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 500, 120, 20));
 
         jLabel16.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel16.setForeground(new java.awt.Color(0, 0, 0));
         jLabel16.setText("Graphics Card:");
         jPanel1.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 470, 130, 20));
 
         jLabel17.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel17.setForeground(new java.awt.Color(0, 0, 0));
         jLabel17.setText("Power Supply:");
         jPanel1.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 440, 130, 20));
 
         TBase1.setEditable(false);
         TBase1.setBackground(new java.awt.Color(226, 226, 226));
         TBase1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        TBase1.setForeground(new java.awt.Color(0, 0, 0));
         TBase1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TBase1.setText("0");
         TBase1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -505,7 +580,6 @@ public class Apple extends javax.swing.JFrame {
         TCPU1.setEditable(false);
         TCPU1.setBackground(new java.awt.Color(226, 226, 226));
         TCPU1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        TCPU1.setForeground(new java.awt.Color(0, 0, 0));
         TCPU1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TCPU1.setText("0");
         TCPU1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -520,7 +594,6 @@ public class Apple extends javax.swing.JFrame {
         TRAM1.setEditable(false);
         TRAM1.setBackground(new java.awt.Color(226, 226, 226));
         TRAM1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        TRAM1.setForeground(new java.awt.Color(0, 0, 0));
         TRAM1.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TRAM1.setText("0");
         TRAM1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -535,7 +608,6 @@ public class Apple extends javax.swing.JFrame {
         TRAM.setEditable(false);
         TRAM.setBackground(new java.awt.Color(226, 226, 226));
         TRAM.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        TRAM.setForeground(new java.awt.Color(0, 0, 0));
         TRAM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TRAM.setText("0");
         TRAM.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -550,7 +622,6 @@ public class Apple extends javax.swing.JFrame {
         TCPU.setEditable(false);
         TCPU.setBackground(new java.awt.Color(226, 226, 226));
         TCPU.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        TCPU.setForeground(new java.awt.Color(0, 0, 0));
         TCPU.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TCPU.setText("0");
         TCPU.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -565,7 +636,6 @@ public class Apple extends javax.swing.JFrame {
         TBase.setEditable(false);
         TBase.setBackground(new java.awt.Color(226, 226, 226));
         TBase.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        TBase.setForeground(new java.awt.Color(0, 0, 0));
         TBase.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         TBase.setText("0");
         TBase.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -580,7 +650,6 @@ public class Apple extends javax.swing.JFrame {
         PlacasProducidas.setEditable(false);
         PlacasProducidas.setBackground(new java.awt.Color(226, 226, 226));
         PlacasProducidas.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        PlacasProducidas.setForeground(new java.awt.Color(0, 0, 0));
         PlacasProducidas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PlacasProducidas.setText("0");
         PlacasProducidas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -600,7 +669,6 @@ public class Apple extends javax.swing.JFrame {
         CostoPlacas.setEditable(false);
         CostoPlacas.setBackground(new java.awt.Color(226, 226, 226));
         CostoPlacas.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        CostoPlacas.setForeground(new java.awt.Color(0, 0, 0));
         CostoPlacas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         CostoPlacas.setText("0");
         CostoPlacas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -611,25 +679,21 @@ public class Apple extends javax.swing.JFrame {
         });
         jPanel1.add(CostoPlacas, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 160, 80, 20));
 
-        JLabel21.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
-        JLabel21.setForeground(new java.awt.Color(0, 0, 0));
-        JLabel21.setText("4");
-        jPanel1.add(JLabel21, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 570, 340, 30));
+        dias.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
+        dias.setText("4");
+        jPanel1.add(dias, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 570, 340, 30));
 
         JLabel6.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        JLabel6.setForeground(new java.awt.Color(0, 0, 0));
         JLabel6.setText("Costos:");
         jPanel1.add(JLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 160, 90, 20));
 
         JLabel11.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
-        JLabel11.setForeground(new java.awt.Color(0, 0, 0));
         JLabel11.setText("CPU:");
         jPanel1.add(JLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, 110, 20));
 
         CPUProducidas.setEditable(false);
         CPUProducidas.setBackground(new java.awt.Color(226, 226, 226));
         CPUProducidas.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        CPUProducidas.setForeground(new java.awt.Color(0, 0, 0));
         CPUProducidas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         CPUProducidas.setText("0");
         CPUProducidas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -649,7 +713,6 @@ public class Apple extends javax.swing.JFrame {
         CostoCPU.setEditable(false);
         CostoCPU.setBackground(new java.awt.Color(226, 226, 226));
         CostoCPU.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        CostoCPU.setForeground(new java.awt.Color(0, 0, 0));
         CostoCPU.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         CostoCPU.setText("0");
         CostoCPU.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -662,14 +725,12 @@ public class Apple extends javax.swing.JFrame {
         jPanel1.add(CostoCPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 240, 80, 20));
 
         JLabel12.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        JLabel12.setForeground(new java.awt.Color(0, 0, 0));
         JLabel12.setText("Tarjeta Gráfica:");
         jPanel1.add(JLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 310, 90, 20));
 
         CostoRAM.setEditable(false);
         CostoRAM.setBackground(new java.awt.Color(226, 226, 226));
         CostoRAM.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        CostoRAM.setForeground(new java.awt.Color(0, 0, 0));
         CostoRAM.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         CostoRAM.setText("0");
         CostoRAM.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -682,7 +743,6 @@ public class Apple extends javax.swing.JFrame {
         jPanel1.add(CostoRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(470, 320, 80, 20));
 
         JLabel13.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        JLabel13.setForeground(new java.awt.Color(0, 0, 0));
         JLabel13.setText("Costos:");
         jPanel1.add(JLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 320, 90, 20));
 
@@ -692,14 +752,12 @@ public class Apple extends javax.swing.JFrame {
         jPanel1.add(RAMBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 290, 160, 30));
 
         JLabel14.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
-        JLabel14.setForeground(new java.awt.Color(0, 0, 0));
         JLabel14.setText("RAM:");
         jPanel1.add(JLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 110, 20));
 
         RAMProducidas.setEditable(false);
         RAMProducidas.setBackground(new java.awt.Color(226, 226, 226));
         RAMProducidas.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        RAMProducidas.setForeground(new java.awt.Color(0, 0, 0));
         RAMProducidas.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         RAMProducidas.setText("0");
         RAMProducidas.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -712,14 +770,12 @@ public class Apple extends javax.swing.JFrame {
         jPanel1.add(RAMProducidas, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 40, 20));
 
         JLabel15.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
-        JLabel15.setForeground(new java.awt.Color(0, 0, 0));
         JLabel15.setText("Power Supply:");
         jPanel1.add(JLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 110, 130, 20));
 
         PowerSupplyProduc.setEditable(false);
         PowerSupplyProduc.setBackground(new java.awt.Color(226, 226, 226));
         PowerSupplyProduc.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        PowerSupplyProduc.setForeground(new java.awt.Color(0, 0, 0));
         PowerSupplyProduc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PowerSupplyProduc.setText("0");
         PowerSupplyProduc.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -739,7 +795,6 @@ public class Apple extends javax.swing.JFrame {
         PowerSupplyCosto.setEditable(false);
         PowerSupplyCosto.setBackground(new java.awt.Color(226, 226, 226));
         PowerSupplyCosto.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        PowerSupplyCosto.setForeground(new java.awt.Color(0, 0, 0));
         PowerSupplyCosto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         PowerSupplyCosto.setText("0");
         PowerSupplyCosto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -751,19 +806,16 @@ public class Apple extends javax.swing.JFrame {
         jPanel1.add(PowerSupplyCosto, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 160, 80, 20));
 
         JLabel16.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        JLabel16.setForeground(new java.awt.Color(0, 0, 0));
         JLabel16.setText("Costos:");
         jPanel1.add(JLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 160, 90, 20));
 
         JLabel17.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        JLabel17.setForeground(new java.awt.Color(0, 0, 0));
         JLabel17.setText("Estándar:");
         jPanel1.add(JLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(600, 290, 90, 20));
 
         GraphicCardCosto.setEditable(false);
         GraphicCardCosto.setBackground(new java.awt.Color(226, 226, 226));
         GraphicCardCosto.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        GraphicCardCosto.setForeground(new java.awt.Color(0, 0, 0));
         GraphicCardCosto.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         GraphicCardCosto.setText("0");
         GraphicCardCosto.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -780,37 +832,30 @@ public class Apple extends javax.swing.JFrame {
         jPanel1.add(GraphicsCardBar, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 210, 160, 30));
 
         JLabel18.setFont(new java.awt.Font("Arial", 3, 16)); // NOI18N
-        JLabel18.setForeground(new java.awt.Color(0, 0, 0));
         JLabel18.setText("Graphics Card:");
         jPanel1.add(JLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 190, 130, 20));
 
         JLabel19.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        JLabel19.setForeground(new java.awt.Color(0, 0, 0));
         JLabel19.setText("Costos:");
         jPanel1.add(JLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, 90, 20));
 
         JLabel20.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        JLabel20.setForeground(new java.awt.Color(0, 0, 0));
         JLabel20.setText("Costos:");
         jPanel1.add(JLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 240, 90, 20));
 
         jLabel10.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel10.setForeground(new java.awt.Color(0, 0, 0));
         jLabel10.setText("Estado PM:");
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 340, 150, 30));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel11.setForeground(new java.awt.Color(0, 0, 0));
         jLabel11.setText("CPU:");
         jPanel1.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 470, 90, 20));
 
         jLabel14.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel14.setForeground(new java.awt.Color(0, 0, 0));
         jLabel14.setText("RAM:");
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 500, 90, 20));
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 18)); // NOI18N
-        jLabel13.setForeground(new java.awt.Color(0, 0, 0));
         jLabel13.setText("Base:");
         jPanel1.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 440, 90, 20));
 
@@ -860,14 +905,12 @@ public class Apple extends javax.swing.JFrame {
         jPanel1.add(Amarillo2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 560, 50, 50));
 
         jLabel12.setFont(new java.awt.Font("Arial", 1, 14)); // NOI18N
-        jLabel12.setForeground(new java.awt.Color(0, 0, 0));
         jLabel12.setText("Estado Director:");
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 460, 150, 30));
 
         GraphicCardProduc.setEditable(false);
         GraphicCardProduc.setBackground(new java.awt.Color(226, 226, 226));
         GraphicCardProduc.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        GraphicCardProduc.setForeground(new java.awt.Color(0, 0, 0));
         GraphicCardProduc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         GraphicCardProduc.setText("0");
         GraphicCardProduc.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -882,7 +925,6 @@ public class Apple extends javax.swing.JFrame {
         EstandarProduc.setEditable(false);
         EstandarProduc.setBackground(new java.awt.Color(226, 226, 226));
         EstandarProduc.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        EstandarProduc.setForeground(new java.awt.Color(0, 0, 0));
         EstandarProduc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         EstandarProduc.setText("0");
         EstandarProduc.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -897,7 +939,6 @@ public class Apple extends javax.swing.JFrame {
         GraficaProduc.setEditable(false);
         GraficaProduc.setBackground(new java.awt.Color(226, 226, 226));
         GraficaProduc.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        GraficaProduc.setForeground(new java.awt.Color(0, 0, 0));
         GraficaProduc.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         GraficaProduc.setText("0");
         GraficaProduc.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.LOWERED, java.awt.Color.lightGray, java.awt.Color.lightGray, java.awt.Color.darkGray, java.awt.Color.darkGray));
@@ -923,7 +964,6 @@ public class Apple extends javax.swing.JFrame {
         jTextField13.setEditable(false);
         jTextField13.setBackground(new java.awt.Color(204, 204, 204));
         jTextField13.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        jTextField13.setForeground(new java.awt.Color(0, 0, 0));
         jTextField13.setText(" Trabajadores:");
         jTextField13.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTextField13.setFocusable(false);
@@ -948,7 +988,6 @@ public class Apple extends javax.swing.JFrame {
         jTextField11.setEditable(false);
         jTextField11.setBackground(new java.awt.Color(204, 204, 204));
         jTextField11.setFont(new java.awt.Font("Arial", 3, 12)); // NOI18N
-        jTextField11.setForeground(new java.awt.Color(0, 0, 0));
         jTextField11.setText("Computadoras");
         jTextField11.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTextField11.setFocusable(false);
@@ -962,7 +1001,6 @@ public class Apple extends javax.swing.JFrame {
         jTextField10.setEditable(false);
         jTextField10.setBackground(new java.awt.Color(255, 255, 255));
         jTextField10.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        jTextField10.setForeground(new java.awt.Color(0, 0, 0));
         jTextField10.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTextField10.setFocusable(false);
         jTextField10.addActionListener(new java.awt.event.ActionListener() {
@@ -975,7 +1013,6 @@ public class Apple extends javax.swing.JFrame {
         jTextField9.setEditable(false);
         jTextField9.setBackground(new java.awt.Color(204, 204, 204));
         jTextField9.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        jTextField9.setForeground(new java.awt.Color(0, 0, 0));
         jTextField9.setText(" Información de Producción");
         jTextField9.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTextField9.setFocusable(false);
@@ -1000,7 +1037,6 @@ public class Apple extends javax.swing.JFrame {
         jTextField6.setEditable(false);
         jTextField6.setBackground(new java.awt.Color(204, 204, 204));
         jTextField6.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        jTextField6.setForeground(new java.awt.Color(0, 0, 0));
         jTextField6.setText(" Estadísticas");
         jTextField6.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTextField6.setFocusable(false);
@@ -1014,7 +1050,6 @@ public class Apple extends javax.swing.JFrame {
         jTextField1.setEditable(false);
         jTextField1.setBackground(new java.awt.Color(204, 204, 204));
         jTextField1.setFont(new java.awt.Font("Arial", 3, 18)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(0, 0, 0));
         jTextField1.setText(" Project Manager / Director");
         jTextField1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
         jTextField1.setFocusable(false);
@@ -1194,7 +1229,7 @@ public class Apple extends javax.swing.JFrame {
     }//GEN-LAST:event_Costos1ActionPerformed
 
     private void backActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_backActionPerformed
-        // TODO add your handling code here:
+        salir();
         Menu ventana = new Menu();
         this.setVisible(false);
         ventana.setLocationRelativeTo(null);
@@ -1419,7 +1454,6 @@ public class Apple extends javax.swing.JFrame {
     private javax.swing.JLabel JLabel18;
     private javax.swing.JLabel JLabel19;
     private javax.swing.JLabel JLabel20;
-    private javax.swing.JLabel JLabel21;
     private javax.swing.JLabel JLabel3;
     private javax.swing.JLabel JLabel6;
     private javax.swing.JLabel JLabel7;
@@ -1449,6 +1483,7 @@ public class Apple extends javax.swing.JFrame {
     private javax.swing.JLabel Verde2;
     private javax.swing.JButton back;
     private javax.swing.JLabel config;
+    private javax.swing.JLabel dias;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

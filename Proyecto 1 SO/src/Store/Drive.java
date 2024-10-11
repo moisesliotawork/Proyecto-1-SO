@@ -394,4 +394,16 @@ public class Drive {
     public String getEstadoDirector() {
         return directorStatus == 0 ? "Vigilando" : "Trabajando";
     }
+    
+    // Método para calcular los ingresos
+    public double calcularIngresos() {
+        // Precios de venta (puedes ajustar estos valores según tu lógica)
+        double precioCompEstandar = 1000.0;
+        double precioCompConGPU = 1500.0;
+
+        // Calcula los ingresos
+        return (getStandardComputers() * precioCompEstandar) +
+               (getComputersWithGPU() * precioCompConGPU);
+    }
+
 }
