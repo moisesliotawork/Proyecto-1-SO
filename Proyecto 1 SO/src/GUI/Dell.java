@@ -23,7 +23,7 @@ import proyecto.pkg1.so.Global;
  */
 public class Dell extends javax.swing.JFrame {
 
-    private SimulacionDell simulacionDell;
+    public static SimulacionDell simulacionDell;
 
     public Dell() {
         initComponents();
@@ -305,6 +305,11 @@ public class Dell extends javax.swing.JFrame {
         jTextField7.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mousePressed(java.awt.event.MouseEvent evt) {
                 jTextField7MousePressed(evt);
+            }
+        });
+        jTextField7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jTextField7ActionPerformed(evt);
             }
         });
         jPanel4.add(jTextField7, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 0, 240, 60));
@@ -1520,6 +1525,10 @@ public class Dell extends javax.swing.JFrame {
         ventana.setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    private void jTextField7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField7ActionPerformed
+        VEjecDell config = new VEjecDell();
+    }//GEN-LAST:event_jTextField7ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -1556,7 +1565,7 @@ public class Dell extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    javax.swing.JProgressBar BaseBar;
+    private javax.swing.JProgressBar BaseBar;
     private javax.swing.JTextField BaseCantidad;
     private javax.swing.JTextField BaseCostos;
     private javax.swing.JTextField BaseTrab;

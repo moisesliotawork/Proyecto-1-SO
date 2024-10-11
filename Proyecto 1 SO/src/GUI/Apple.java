@@ -144,6 +144,7 @@ public class Apple extends javax.swing.JFrame {
         config = new javax.swing.JLabel();
         JLabel3 = new javax.swing.JLabel();
         back = new javax.swing.JButton();
+        jPanel3 = new javax.swing.JPanel();
         jSeparator1 = new javax.swing.JSeparator();
         Utilidad = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -288,6 +289,7 @@ public class Apple extends javax.swing.JFrame {
             }
         });
         jPanel2.add(back, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 60, 60));
+        jPanel2.add(jPanel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 0, -1, -1));
 
         jPanel1.add(jPanel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 800, 60));
 
@@ -1501,6 +1503,7 @@ public class Apple extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JSeparator jSeparator1;
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField10;

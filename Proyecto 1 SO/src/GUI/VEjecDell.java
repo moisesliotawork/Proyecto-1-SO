@@ -4,6 +4,9 @@
  */
 package GUI;
 
+import static GUI.Dell.simulacionDell;
+import proyecto.pkg1.so.Global;
+
 /**
  *
  * @author vickysaldivia
@@ -15,6 +18,12 @@ public class VEjecDell extends javax.swing.JFrame {
      */
     public VEjecDell() {
         initComponents();
+        this.WorkerBase.setValue(Global.MotherboardProducersDell);
+        this.WorkerAssembler.setValue(Global.AssemblersDell);
+        this.WorkerCPU.setValue(Global.CPUProducerDell);
+        this.WorkerGCard.setValue(Global.GPUProducersDell);
+        this.WorkerPSupply.setValue(Global.PowerSupplyProducersDell);
+        this.WorkerRAM.setValue(Global.RAMProducersDell);
     }
 
     /**
@@ -48,6 +57,11 @@ public class VEjecDell extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         WorkerBase.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        WorkerBase.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                WorkerBaseMouseClicked(evt);
+            }
+        });
         getContentPane().add(WorkerBase, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 110, 130, -1));
 
         WorkerCPU.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
@@ -154,6 +168,10 @@ public class VEjecDell extends javax.swing.JFrame {
         // TODO add your handling code here:
         this.setVisible(false);
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void WorkerBaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_WorkerBaseMouseClicked
+        // TODO add your handling code here:
+    }//GEN-LAST:event_WorkerBaseMouseClicked
 
     /**
      * @param args the command line arguments

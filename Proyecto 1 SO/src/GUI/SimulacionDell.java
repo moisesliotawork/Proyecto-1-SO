@@ -170,4 +170,46 @@ public class SimulacionDell extends Thread {
             }
         }
     }
+
+    public Dell getVentanaDell() {
+        return ventanaDell;
+    }
+
+    public void setVentanaDell(Dell ventanaDell) {
+        this.ventanaDell = ventanaDell;
+    }
+
+    public Company getDellCompany() {
+        return dellCompany;
+    }
+
+    public void setDellCompany(Company dellCompany) {
+        this.dellCompany = dellCompany;
+    }
+
+    public int getDiasSimulacion() {
+        return diasSimulacion;
+    }
+
+    public void setDiasSimulacion(int diasSimulacion) {
+        this.diasSimulacion = diasSimulacion;
+    }
+
+    public Worker getProjectManager() {
+        return projectManager;
+    }
+
+    public void setProjectManager(Worker projectManager) {
+        this.projectManager = projectManager;
+    }
+
+    public Worker getDirector() {
+        return director;
+    }
+
+    public void setDirector(Worker director) {
+        this.director = director;
+    }
+    
+    
 }
