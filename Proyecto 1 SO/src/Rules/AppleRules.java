@@ -11,22 +11,28 @@ import Enums.CompanyEnum;
  * @author Moises Liota
  */
 public class AppleRules extends CompanyRules{
+    /**
+     * Genera los datos necesarios que tienen que ver con la compañía Apple.
+     */
     public AppleRules() {
-        // Elementos necesarios para ensamblar una computadora
-        this.motherboardsNeedIt = 2;
-        this.cpusNeedIt = 1;
-        this.ramNeedIt = 4;
-        this.powerSupplyNeedIt = 4;
-        this.graphicsCardNeedIt = 2; // Para computadoras con tarjeta gráfica
 
-        // Ganancias
+        // Elementos necesarios para ensamblar una computadora estándar en Apple
+        this.motherboardsNeeded = 2;
+        this.cpusNeeded = 1;
+        this.ramModulesNeeded = 4;
+        this.powerSuppliesNeeded = 4;
+        this.gpusNeeded = 2;  // Solo para computadoras con GPU
+
+        // Ingresos por computadora estándar y con GPU
         this.incomeStandard = 100000f;
-        this.incomeGraphicsCard = 150000f;
+        this.incomeWithGPU = 150000f;
 
-        // Intervalo para ensamblar computadoras con tarjeta gráfica
-        this.computersToGraphicsCard = 5;  // Después de ensamblar 5 computadoras estándar, la siguiente tendrá 2 tarjetas gráficas
+        // Regla: cada 5 computadoras estándar, se produce una con GPU
+        this.computersToComputersWithGPU = 5;
 
-        // Identificador de la compañía
+        // Número máximo de empleados
+        this.employees = 20;
+
         this.companyEnum = CompanyEnum.Apple;
     }
 }

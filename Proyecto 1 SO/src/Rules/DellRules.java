@@ -11,22 +11,28 @@ import Enums.CompanyEnum;
  * @author Moises Liota
  */
 public class DellRules extends CompanyRules{
+    /**
+     * Genera los datos necesarios que tienen que ver con la compañía Dell.
+     */
     public DellRules() {
-        // Elementos necesarios para ensamblar una computadora
-        this.motherboardsNeedIt = 1;
-        this.cpusNeedIt = 5;
-        this.ramNeedIt = 6;
-        this.powerSupplyNeedIt = 5;
-        this.graphicsCardNeedIt = 1; // Para computadoras con tarjeta gráfica
 
-        // Ganancias
+        // Elementos necesarios para ensamblar una computadora estándar en Dell
+        this.motherboardsNeeded = 1;
+        this.cpusNeeded = 5;
+        this.ramModulesNeeded = 6;
+        this.powerSuppliesNeeded = 5;
+        this.gpusNeeded = 1;  // Solo para computadoras con GPU
+
+        // Ingresos por computadora estándar y con GPU
         this.incomeStandard = 80000f;
-        this.incomeGraphicsCard = 120000f;
+        this.incomeWithGPU = 120000f;
 
-        // Intervalo para ensamblar computadoras con tarjeta gráfica
-        this.computersToGraphicsCard = 3;  // Después de ensamblar 3 computadoras estándar, la siguiente tendrá 1 tarjeta gráfica
+        // Regla: cada 3 computadoras estándar, se produce una con GPU
+        this.computersToComputersWithGPU = 3;
 
-        // Identificador de la compañía
+        // Número máximo de empleados
+        this.employees = 18;
+
         this.companyEnum = CompanyEnum.Dell;
     }
 }
