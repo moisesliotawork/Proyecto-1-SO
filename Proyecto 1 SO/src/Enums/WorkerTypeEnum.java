@@ -8,7 +8,7 @@ package Enums;
  * Permite identificar a los tipos de trabajadores
  * @author vickysaldivia
  */
-public enum WorkerEnum {
+public enum WorkerTypeEnum {
     /** Productor de Placa Base */
     BaseProducer(0),
     
@@ -36,7 +36,7 @@ public enum WorkerEnum {
     private final int id;
     
     /** Permite conocer el id de los tipos de trabajadores*/
-    private WorkerEnum(int id){
+    private WorkerTypeEnum(int id){
         this.id = id;
     }
     
