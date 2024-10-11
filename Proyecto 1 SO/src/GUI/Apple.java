@@ -5,7 +5,15 @@
 package GUI;
 
 import java.awt.Color;
+import javax.accessibility.AccessibleContext;
+import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.JRootPane;
+import javax.swing.JSeparator;
+import javax.swing.JTextField;
 /**
  *
  * @author vickysaldivia
@@ -18,6 +26,9 @@ public class Apple extends javax.swing.JFrame {
     public Apple() {
         initComponents();
     }
+
+    
+    
 
     /**
      * This method is called from within the constructor to initialize the form.

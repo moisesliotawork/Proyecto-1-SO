@@ -4,6 +4,19 @@
  */
 package GUI;
 
+import Companies.Company;
+import Rules.DellRules;
+import Store.Drive;
+import javax.accessibility.AccessibleContext;
+import javax.swing.JButton;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JProgressBar;
+import javax.swing.JRootPane;
+import javax.swing.JSeparator;
+import javax.swing.JTextField;
+import proyecto.pkg1.so.Global;
+
 /**
  *
  * @author vickysaldivia
@@ -15,6 +28,71 @@ public class Dell extends javax.swing.JFrame {
      */
     public Dell() {
         initComponents();
+
+        // Inicializar reglas y almacenamiento para Dell
+        DellRules dellRules = new DellRules();
+        Drive dellDrive = new Drive(0, 0, 0, 0, 0);
+        Global.daysBetweenReleases = 30;
+
+        // Número de empleados para cada tipo de trabajador
+        int numMotherboardProducers = 2;
+        int numCPUProducers = 10;
+        int numRAMProducers = 3;
+        int numPowerSupplyProducers = 1;
+        int numGPUProducers = 1;
+        int numAssemblers = 1;
+
+        // Crear la compañía Dell
+        Company dellCompany = new Company(
+                numMotherboardProducers, numCPUProducers, numRAMProducers,
+                numPowerSupplyProducers, numGPUProducers, numAssemblers,
+                dellDrive, dellRules
+        );
+        // Iniciar simulación
+        SimulacionDell simulacion = new SimulacionDell(this, dellCompany);
+        simulacion.start();
+
+        this.BaseTrab.setText(String.valueOf(numMotherboardProducers));
+        this.PowerSupplyTrab.setText(String.valueOf(numPowerSupplyProducers));
+        this.CPUTrab.setText(String.valueOf(numCPUProducers));
+        this.RAMTrab.setText(String.valueOf(numRAMProducers));
+        this.GraphicsCardTrab.setText(String.valueOf(numGPUProducers));
+        this.GraphicsCardTrab1.setText(String.valueOf(numAssemblers));
+    }
+
+    public void actualizarValores(int motherboards, int cpus, int rams, int powerSupplies, int gpus, int standardComputers, int computersWithGPU, int diasRestantes, double costos, String estadoPM, String estadoDirector, double sueldoPM, double sueldoDirector) {
+        // Actualizar componentes producidos
+        BaseCantidad.setText(String.valueOf(motherboards));
+        CPUCantidad.setText(String.valueOf(cpus));
+        RAMCantidad.setText(String.valueOf(rams));
+        PowerSupplyCantidad.setText(String.valueOf(powerSupplies));
+        GraphicsCardCantidad.setText(String.valueOf(gpus));
+
+        // Actualizar computadoras ensambladas
+        CompEstandarCantidad.setText(String.valueOf(standardComputers));
+        CompGraficaCantidad.setText(String.valueOf(computersWithGPU));
+
+        // Actualizar días restantes
+        JLabel18.setText("Días restantes para la entrega: " + diasRestantes);
+
+        // Actualizar costos
+        CostosValor.setText(String.format("%.2f", costos));
+
+        // Actualizar estado del PM y director
+        EstadosPM.setText(estadoPM);
+        EstadoDirector.setText(estadoDirector);
+        
+        SueldoPM.setText(String.valueOf(sueldoPM));
+        SueldoDirector.setText(String.valueOf(sueldoDirector));
+    }
+
+    public void actualizarEstadoDirector(String estado) {
+        EstadoDirector.setText(estado);  // Aquí actualizas el JLabel con el estado actual
+    }
+
+    public void actualizarSueldos(float sueldoDirector, float sueldoPM) {
+        SueldoDirector.setText(String.format("%.2f", sueldoDirector));
+        SueldoPM.setText(String.format("%.2f", sueldoPM));
     }
 
     /**
@@ -1436,7 +1514,7 @@ public class Dell extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JProgressBar BaseBar;
+    javax.swing.JProgressBar BaseBar;
     private javax.swing.JTextField BaseCantidad;
     private javax.swing.JTextField BaseCostos;
     private javax.swing.JTextField BaseTrab;

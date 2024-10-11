@@ -17,7 +17,7 @@ import proyecto.pkg1.so.Global;
  * @author Moises Liota
  */
 public class Director extends Worker{
-     private final Drive drive;
+    private final Drive drive;
 
     public Director(WorkerTypeEnum wte, float f, Semaphore smphr, CompanyRules cr, Drive drive) {
         super(wte, f, smphr, cr);
@@ -27,8 +27,7 @@ public class Director extends Worker{
 
     @Override
     public void run() {
-       while (hired && running) {
-            double timePassed = 0;
+        while (hired && running) {
             try {
                 // Verifica si es el día del lanzamiento de computadoras ensambladas
                 drive.getDaysMutex().acquire();
@@ -53,37 +52,43 @@ public class Director extends Worker{
                 } else {
                     drive.getDaysMutex().release();
 
-                    // El Director elige una hora del día aleatoriamente para supervisar
+                    // El Director elige una hora aleatoria para supervisar
                     Random r = new Random();
                     double oneHour = getDayDuration() / 24;  // Un día tiene 24 horas simuladas
-                    double checkingHour = r.nextInt(24) * oneHour;  // Elige una hora aleatoria del día para revisar
-                    timePassed = (checkingHour + 1) * oneHour;
+                    double checkingHour = r.nextInt(24) * oneHour;  // Hora aleatoria para revisar
 
+                    // Comienza la jornada del Director, avanza hora por hora
                     double contador = 0;
                     while (contador < getDayDuration()) {
-                        if (contador == checkingHour) {
-                            // El Director empieza a supervisar (estado = 0)
+                        if (contador >= checkingHour) {
+                            // El Director comienza a supervisar (estado = 0)
                             drive.setDirectorStatus(0);
+                            System.out.println("El Director está supervisando.");
 
-                            // Dura 25 minutos supervisando
+                            // Supervisa durante 25 minutos
                             double oneMinute = oneHour / 60;
                             sleep(Math.round(25 * oneMinute));
 
                             // El Director deja de supervisar (estado = 1)
                             drive.setDirectorStatus(1);
+                            System.out.println("El Director dejó de supervisar.");
 
-                            // Dura 35 minutos descansando
+                            // Descansa durante 35 minutos
                             sleep(Math.round(35 * oneMinute));
+                            
+                            // Luego elige una nueva hora aleatoria para la siguiente supervisión
+                            checkingHour = r.nextInt(24) * oneHour;
                         }
+
                         // Avanza una hora simulada
                         sleep(Math.round(oneHour));
                         contador += oneHour;
                     }
                 }
 
-                // Cálculo del salario diario del Director
+                // Cálculo del salario diario del Director (24 horas de trabajo)
                 drive.getCostsMutex().acquire();
-                drive.setDirectorCost(drive.getDirectorCost() + costPerHour * 24);  // Salario por 24 horas de trabajo
+                drive.setDirectorCost(drive.getDirectorCost() + costPerHour * 24);
                 drive.getCostsMutex().release();
 
             } catch (InterruptedException e) {

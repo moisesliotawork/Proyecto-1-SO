@@ -4,7 +4,11 @@
  */
 package GUI;
 
+import Enums.CompanyEnum;
 import java.awt.Color;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
@@ -19,6 +23,7 @@ public class Menu extends javax.swing.JFrame {
         initComponents();
         this.setLocationRelativeTo(null);
         setResizable(false);
+        
     }
 
     /**
@@ -155,7 +160,8 @@ public class Menu extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void AppleButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AppleButtonActionPerformed
-        // TODO add your handling code here:
+
+            // TODO add your handling code here:
         Apple VentanaApple = new Apple();
         this.setVisible(false);
         VentanaApple.setLocationRelativeTo(null);
@@ -163,7 +169,8 @@ public class Menu extends javax.swing.JFrame {
     }//GEN-LAST:event_AppleButtonActionPerformed
 
     private void DellButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_DellButtonActionPerformed
-        // TODO add your handling code here:
+//        try {
+            // TODO add your handling code here:
         Dell VentanaDell = new Dell();
         this.setVisible(false);
         VentanaDell.setLocationRelativeTo(null);

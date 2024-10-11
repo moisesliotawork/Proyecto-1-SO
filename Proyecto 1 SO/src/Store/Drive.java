@@ -352,4 +352,46 @@ public class Drive {
     public void setComputersAssembledSinceLastGPU(int computersAssembledSinceLastGPU) {
         this.computersAssembledSinceLastGPU = computersAssembledSinceLastGPU;
     }
+    
+    /**
+     * Método para calcular los costos totales en base a los componentes y sueldos
+     * @return float - Costos actuales
+     */
+    public float calcularCostos() {
+        try {
+            costsMutex.acquire();
+            
+            // Suma de los costos de componentes y sueldos
+            float totalCostos = motherboardCost * motherboards 
+                              + cpuCost * cpus
+                              + ramCost * ramModules
+                              + powerSupplyCost * powerSupplies
+                              + gpuCost * gpus
+                              + assemblerCost * standardComputers 
+                              + pmCost + directorCost;
+            
+            return totalCostos;
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        } finally {
+            costsMutex.release();
+        }
+        return 0;
+    }
+
+    /**
+     * Método para obtener el estado del PM
+     * @return String - Estado actual del PM
+     */
+    public String getEstadoPM() {
+        return pmStatus == 0 ? "Trabajando" : "Viendo Anime";
+    }
+
+    /**
+     * Método para obtener el estado del Director
+     * @return String - Estado actual del Director
+     */
+    public String getEstadoDirector() {
+        return directorStatus == 0 ? "Vigilando" : "Trabajando";
+    }
 }
