@@ -192,7 +192,7 @@ public class Company {
                 Nodo temp = employeeList.obtenerNodo(j);
                 if (temp != null) {
                     Worker worker = (Worker) temp.getData();
-                    worker.setDayDuration((int) Global.daysDuartion);
+                    worker.setDayDuration((int) Global.daysDuration);
                 }
             }
         }

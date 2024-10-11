@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import proyecto.pkg1.so.Global;
+
 /**
  *
  * @author vickysaldivia
@@ -28,8 +30,8 @@ public class ValoresIniciales extends javax.swing.JFrame {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        Guardar = new javax.swing.JButton();
         Volver = new javax.swing.JButton();
-        Volver1 = new javax.swing.JButton();
         RestantesEntrega = new javax.swing.JSpinner();
         DuracionDias = new javax.swing.JSpinner();
         AppleAssembler = new javax.swing.JSpinner();
@@ -80,24 +82,29 @@ public class ValoresIniciales extends javax.swing.JFrame {
         jLabel1.setText("CONFIGURACIÓN");
         jPanel1.add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 40, 490, 50));
 
+        Guardar.setBackground(new java.awt.Color(0, 102, 204));
+        Guardar.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
+        Guardar.setForeground(new java.awt.Color(255, 255, 255));
+        Guardar.setText("Guardar");
+        Guardar.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.black, java.awt.Color.black));
+        Guardar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                GuardarActionPerformed(evt);
+            }
+        });
+        jPanel1.add(Guardar, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 490, 100, 40));
+
         Volver.setBackground(new java.awt.Color(0, 102, 204));
         Volver.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
         Volver.setForeground(new java.awt.Color(255, 255, 255));
-        Volver.setText("Guardar");
+        Volver.setText("Volver");
         Volver.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.black, java.awt.Color.black));
-        jPanel1.add(Volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(570, 490, 100, 40));
-
-        Volver1.setBackground(new java.awt.Color(0, 102, 204));
-        Volver1.setFont(new java.awt.Font("Arial", 1, 13)); // NOI18N
-        Volver1.setForeground(new java.awt.Color(255, 255, 255));
-        Volver1.setText("Volver");
-        Volver1.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED, java.awt.Color.white, java.awt.Color.white, java.awt.Color.black, java.awt.Color.black));
-        Volver1.addActionListener(new java.awt.event.ActionListener() {
+        Volver.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                Volver1ActionPerformed(evt);
+                VolverActionPerformed(evt);
             }
         });
-        jPanel1.add(Volver1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 100, 40));
+        jPanel1.add(Volver, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 490, 100, 40));
 
         RestantesEntrega.setFont(new java.awt.Font("SansSerif", 1, 12)); // NOI18N
         RestantesEntrega.setModel(new javax.swing.SpinnerNumberModel(30000, 0, 60000, 1));
@@ -300,9 +307,40 @@ public class ValoresIniciales extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void Volver1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_Volver1ActionPerformed
+    private void VolverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_VolverActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_Volver1ActionPerformed
+        Menu ventana = new Menu();
+        ventana.setLocationRelativeTo(null);
+        ventana.setResizable(false);
+        this.setVisible(false);
+        ventana.setVisible(true);
+    }//GEN-LAST:event_VolverActionPerformed
+
+    private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
+        // TODO add your handling code here:
+        
+        // Valores Generales
+        Global.daysBetweenReleases = (int)this.RestantesEntrega.getValue();
+        Global.daysDuration = (int) this.DuracionDias.getValue();
+        
+        // Valores DELL
+        Global.AssemblersDell = (int) this.DellAssembler.getValue();
+        Global.CPUProducerDell = (int) this.DellCPU.getValue();
+        Global.GPUProducersDell = (int) this.DellGCard.getValue();
+        Global.MotherboardProducersDell = (int) this.DellBase.getValue();
+        Global.PowerSupplyProducersDell = (int) this.DellPSupply.getValue();
+        Global.RAMProducersDell = (int) this.DellRAM.getValue();
+        
+        // Valores Apple
+        Global.AssemblersApple = (int) this.AppleAssembler.getValue();
+        Global.CPUProducerApple = (int) this.AppleCPU.getValue();
+        Global.GPUProducersApple = (int) this.AppleGCard.getValue();
+        Global.MotherboardProducersApple = (int) this.AppleBase.getValue();
+        Global.PowerSupplyProducersApple = (int) this.ApplePSupply.getValue();
+        Global.RAMProducersApple = (int) this.AppleRAM.getValue();
+        
+        
+    }//GEN-LAST:event_GuardarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -353,9 +391,9 @@ public class ValoresIniciales extends javax.swing.JFrame {
     private javax.swing.JSpinner DellPSupply;
     private javax.swing.JSpinner DellRAM;
     private javax.swing.JSpinner DuracionDias;
+    private javax.swing.JButton Guardar;
     private javax.swing.JSpinner RestantesEntrega;
     private javax.swing.JButton Volver;
-    private javax.swing.JButton Volver1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
