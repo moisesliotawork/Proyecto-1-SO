@@ -25,6 +25,7 @@ public class Apple extends javax.swing.JFrame {
      */
     public Apple() {
         initComponents();
+        
     }
 
     

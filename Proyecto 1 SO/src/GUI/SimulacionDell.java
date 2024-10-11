@@ -36,8 +36,8 @@ public class SimulacionDell extends Thread {
         director = (Worker) directorLista.obtenerNodo(0).getData();  // Obtener el Director
         
         // Establecer la duración del día para ambos
-        projectManager.setDayDuration((int) Global.daysDuartion);
-        director.setDayDuration((int) Global.daysDuartion);
+        projectManager.setDayDuration((int) Global.daysDuration);
+        director.setDayDuration((int) Global.daysDuration);
         
         // Iniciar ambos hilos
         projectManager.start();
@@ -53,7 +53,7 @@ public class SimulacionDell extends Thread {
             Lista empleados = dellCompany.getEmployees()[i];
             for (int j = 0; j < empleados.getSize(); j++) {
                 Worker worker = (Worker) empleados.obtenerNodo(j).getData();
-                worker.setDayDuration((int) Global.daysDuartion);  // Establecer la duración del día
+                worker.setDayDuration((int) Global.daysDuration);  // Establecer la duración del día
                 worker.start();  // Iniciar hilo de trabajador
             }
         }

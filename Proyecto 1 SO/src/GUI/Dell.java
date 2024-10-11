@@ -35,12 +35,12 @@ public class Dell extends javax.swing.JFrame {
         Global.daysBetweenReleases = 30;
 
         // Número de empleados para cada tipo de trabajador
-        int numMotherboardProducers = 2;
-        int numCPUProducers = 10;
-        int numRAMProducers = 3;
-        int numPowerSupplyProducers = 1;
-        int numGPUProducers = 1;
-        int numAssemblers = 1;
+        int numMotherboardProducers = Global.MotherboardProducersDell;
+        int numCPUProducers = Global.CPUProducerDell;
+        int numRAMProducers = Global.RAMProducersDell;
+        int numPowerSupplyProducers = Global.PowerSupplyProducersDell;
+        int numGPUProducers = Global.GPUProducersDell;
+        int numAssemblers = Global.AssemblersDell;
 
         // Crear la compañía Dell
         Company dellCompany = new Company(
