@@ -4,6 +4,8 @@
  */
 package GUI;
 
+import Rules.AppleRules;
+import Rules.DellRules;
 import proyecto.pkg1.so.Global;
 
 /**
@@ -12,12 +14,29 @@ import proyecto.pkg1.so.Global;
  */
 public class ValoresIniciales extends javax.swing.JFrame {
 
+
     
     public ValoresIniciales() {
+        AppleRules appleRules = new AppleRules();
+        DellRules dellRules = new DellRules();
         initComponents();
-        //appleBase = (int) ;
+        // Valores DELL
+        this.DellAssembler.setValue(Global.AssemblersDell);
+        this.DellCPU.setValue(Global.CPUProducerDell);
+        this.DellGCard.setValue(Global.GPUProducersDell);
+        this.DellBase.setValue(Global.MotherboardProducersDell);
+        this.DellPSupply.setValue(Global.PowerSupplyProducersDell);
+        this.DellRAM.setValue(Global.RAMProducersDell);
         
-    }
+        // Valores Apple
+        this.AppleAssembler.setValue(Global.AssemblersApple);
+        this.AppleCPU.setValue(Global.CPUProducerApple);
+        this.AppleGCard.setValue(Global.GPUProducersApple);
+        this.AppleBase.setValue(Global.MotherboardProducersApple);
+        this.ApplePSupply.setValue(Global.PowerSupplyProducersApple);
+        this.AppleRAM.setValue(Global.RAMProducersApple);
+        
+        }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -115,27 +134,32 @@ public class ValoresIniciales extends javax.swing.JFrame {
         jPanel1.add(DuracionDias, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 480, 130, -1));
 
         AppleAssembler.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        AppleAssembler.setModel(new javax.swing.SpinnerNumberModel(2, 0, 20, 1));
+        AppleAssembler.setModel(new javax.swing.SpinnerNumberModel(12, 1, 20, 1));
         jPanel1.add(AppleAssembler, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 400, 130, -1));
 
         AppleBase.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        AppleBase.setModel(new javax.swing.SpinnerNumberModel(2, 0, 18, 1));
+        AppleBase.setModel(new javax.swing.SpinnerNumberModel(2, 1, 18, 1));
+        AppleBase.addChangeListener(new javax.swing.event.ChangeListener() {
+            public void stateChanged(javax.swing.event.ChangeEvent evt) {
+                AppleBaseStateChanged(evt);
+            }
+        });
         jPanel1.add(AppleBase, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 190, 130, -1));
 
         AppleCPU.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        AppleCPU.setModel(new javax.swing.SpinnerNumberModel(12, 0, 20, 1));
+        AppleCPU.setModel(new javax.swing.SpinnerNumberModel(12, 1, 20, 1));
         jPanel1.add(AppleCPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 230, 130, -1));
 
         AppleRAM.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        AppleRAM.setModel(new javax.swing.SpinnerNumberModel(2, 0, 20, 1));
+        AppleRAM.setModel(new javax.swing.SpinnerNumberModel(12, 1, 20, 1));
         jPanel1.add(AppleRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 270, 130, -1));
 
         ApplePSupply.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        ApplePSupply.setModel(new javax.swing.SpinnerNumberModel(1, 0, 18, 1));
+        ApplePSupply.setModel(new javax.swing.SpinnerNumberModel(12, 1, 20, 1));
         jPanel1.add(ApplePSupply, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 310, 130, -1));
 
         AppleGCard.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        AppleGCard.setModel(new javax.swing.SpinnerNumberModel(1, 0, 20, 1));
+        AppleGCard.setModel(new javax.swing.SpinnerNumberModel(12, 1, 20, 1));
         jPanel1.add(AppleGCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 350, 130, -1));
 
         jLabel7.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
@@ -181,7 +205,7 @@ public class ValoresIniciales extends javax.swing.JFrame {
         jPanel1.add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 269, 190, 30));
 
         DellAssembler.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        DellAssembler.setModel(new javax.swing.SpinnerNumberModel(1, 0, 18, 1));
+        DellAssembler.setModel(new javax.swing.SpinnerNumberModel(12, 1, 20, 1));
         jPanel1.add(DellAssembler, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 400, 130, -1));
 
         jLabel9.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
@@ -197,11 +221,11 @@ public class ValoresIniciales extends javax.swing.JFrame {
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 350, 190, 30));
 
         DellGCard.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        DellGCard.setModel(new javax.swing.SpinnerNumberModel(2, 0, 18, 1));
+        DellGCard.setModel(new javax.swing.SpinnerNumberModel(12, 1, 20, 1));
         jPanel1.add(DellGCard, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 350, 130, -1));
 
         DellPSupply.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        DellPSupply.setModel(new javax.swing.SpinnerNumberModel(1, 0, 18, 1));
+        DellPSupply.setModel(new javax.swing.SpinnerNumberModel(12, 1, 20, 1));
         jPanel1.add(DellPSupply, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 310, 130, -1));
 
         jLabel11.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
@@ -217,11 +241,11 @@ public class ValoresIniciales extends javax.swing.JFrame {
         jPanel1.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 270, 190, 30));
 
         DellRAM.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        DellRAM.setModel(new javax.swing.SpinnerNumberModel(2, 0, 20, 1));
+        DellRAM.setModel(new javax.swing.SpinnerNumberModel(12, 1, 20, 1));
         jPanel1.add(DellRAM, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 270, 130, -1));
 
         DellCPU.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        DellCPU.setModel(new javax.swing.SpinnerNumberModel(10, 0, 18, 1));
+        DellCPU.setModel(new javax.swing.SpinnerNumberModel(12, 1, 20, 1));
         jPanel1.add(DellCPU, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 230, 130, -1));
 
         jLabel13.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
@@ -237,7 +261,7 @@ public class ValoresIniciales extends javax.swing.JFrame {
         jPanel1.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 190, 170, 30));
 
         DellBase.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
-        DellBase.setModel(new javax.swing.SpinnerNumberModel(2, 0, 18, 1));
+        DellBase.setModel(new javax.swing.SpinnerNumberModel(12, 1, 20, 1));
         jPanel1.add(DellBase, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 190, 130, -1));
 
         jLabel15.setFont(new java.awt.Font("Arial", 1, 16)); // NOI18N
@@ -315,7 +339,7 @@ public class ValoresIniciales extends javax.swing.JFrame {
         this.setVisible(false);
         ventana.setVisible(true);
     }//GEN-LAST:event_VolverActionPerformed
-
+    
     private void GuardarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_GuardarActionPerformed
         // TODO add your handling code here:
         
@@ -341,7 +365,17 @@ public class ValoresIniciales extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_GuardarActionPerformed
-
+    
+    
+    public int verifyDellSum(){
+        return (int) this.DellAssembler.getValue() + (int) this.DellBase.getValue() +
+        (int) this.DellCPU.getValue() + (int) this.DellGCard.getValue() + (int) this.DellPSupply.getValue() + (int) this.DellRAM.getValue();
+    }
+    
+    private void AppleBaseStateChanged(javax.swing.event.ChangeEvent evt) {//GEN-FIRST:event_AppleBaseStateChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_AppleBaseStateChanged
+    
     /**
      * @param args the command line arguments
      */
