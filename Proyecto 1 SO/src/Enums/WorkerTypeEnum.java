@@ -9,38 +9,35 @@ package Enums;
  * @author vickysaldivia
  */
 public enum WorkerTypeEnum {
-    /** Productor de Placa Base */
-    BaseProducer(0),
-    
-    /** Productor de CPU */
+     /**Productor de placas base*/
+    MotherboardProducer(0),
+    /**Productor de CPUs*/
     CPUProducer(1),
-    
-    /** Productor de Memoria RAM */
+    /**Productor de Memoria RAM*/
     RAMProducer(2),
-    
-    /** Productor de Fuente de Alimentación */
+    /**Productor de fuentes de alimentación*/
     PowerSupplyProducer(3),
-    
-    /** Productor de Tarjeta Gráfica */
-    GraphicsCardProducer(4),
-    
-    /** Ensamblan el computador con componentes del almacén */
+    /**Productor de tarjetas gráficas*/
+    GPUProducer(4),
+    /**Ensamblador de computadoras*/
     Assembler(5),
-    
-    /** Mantiene registro de los días */
+    /**Es el que registra el paso de los días*/
     ProjectManager(6),
-    
-    /** Conoce el deadline y entrega los productos */
+    /**Revisa la DEADLINE y envía los equipos*/
     Director(7);
-    
+
     private final int id;
-    
-    /** Permite conocer el id de los tipos de trabajadores*/
-    private WorkerTypeEnum(int id){
+
+    /**
+     * Constructor oculto para no crear sino solo ver tipos de trabajos
+     * @param id int - identificador único del tipo de trabajo
+     */
+    private WorkerTypeEnum(int id) {
         this.id = id;
     }
-    
-    public int getId(){
-        return this.id;
+
+    // Getter para obtener el identificador único del tipo de trabajo
+    public int getId() {
+        return id;
     }
 }

@@ -10,73 +10,101 @@ import Enums.CompanyEnum;
  *
  * @author Moises Liota
  */
-public abstract class CompanyRules {
-    // Elementos necesarios para ensamblar una computadora
-    protected int motherboardsNeedIt;
-    protected int cpusNeedIt;
-    protected int ramNeedIt;
-    protected int powerSupplyNeedIt;
-    protected int graphicsCardNeedIt;
+public class CompanyRules {
+     // Elementos necesarios para ensamblar una computadora estándar
+    protected int motherboardsNeeded;
+    protected int cpusNeeded;
+    protected int ramModulesNeeded;
+    protected int powerSuppliesNeeded;
+    protected int gpusNeeded;
 
-    // Ganancias por computadora
+    // Ingresos por computadora
     protected float incomeStandard;
-    protected float incomeGraphicsCard;
+    protected float incomeWithGPU;
 
-    // Intervalo para ensamblar computadoras con tarjeta gráfica
-    protected int computersToGraphicsCard;
-    
-    // Intervalo predeterminado entre lanzamientos de productos
-    protected int daysBetweenReleases = 30;  // Valor por defecto
+    // Intervalo de computadoras estándar para producir una con tarjeta gráfica
+    protected int computersToComputersWithGPU;
 
-    // Producción por día de los diferentes componentes (común para todas las compañías)
-    protected final float motherboardProductionPerDay = 0.25f;
-    protected final float cpuProductionPerDay = 0.25f;
-    protected final float ramProductionPerDay = 1f;
-    protected final float powerSupplyProductionPerDay = 5f;
-    protected final float graphicsCardProductionPerDay = 0.5f;
-    
-    private float cpuProducerCost = 10f;
-    private float ramProducerCost = 8f;
-    private float powerSupplyProducerCost = 9f;
-    private float graphicsCardProducerCost = 15f;
-    private float baseProducerCost = 12f;
-    private float assemblerCost = 20f;
-    private float pmCost = 25f;
-    private float directorCost = 30f;
-    
-    
-    //Numero máximo de empleados
+    // Número máximo de empleados
     protected int employees;
+
+    // Costo por hora por tipo de trabajo
+    private float motherboardCost = 20f;
+    private float cpuCost = 26f;
+    private float ramCost = 40f;
+    private float powerSupplyCost = 16f;
+    private float gpuCost = 34f;
+    private float assemblerCost = 50f;
+    private float pmCost = 40f;
+    private float directorCost = 60f;
+
+    // Producción por día de cada componente (común a ambas compañías)
+    protected final float motherboardProductionPerDay = 0.25f;  // 1 cada 4 días
+    protected final float cpuProductionPerDay = 0.25f;          // 1 cada 4 días
+    protected final float ramProductionPerDay = 1f;             // 1 por día
+    protected final float powerSupplyProductionPerDay = 5f;     // 5 por día
+    protected final float gpuProductionPerDay = 0.5f;           // 1 cada 2 días
+
     
-    // Identificador de la compañía
     protected CompanyEnum companyEnum;
 
-    /**
-     * Verifica si se puede ensamblar una computadora estándar con los componentes disponibles.
-     * @param motherboards Número de placas base disponibles
-     * @param cpus Número de CPUs disponibles
-     * @param ram Número de módulos de RAM disponibles
-     * @param powerSupplies Número de fuentes de alimentación disponibles
-     * @return booleano, si es posible ensamblar una computadora estándar
-     */
-    public boolean canMakeStandardComputer(int motherboards, int cpus, int ram, int powerSupplies) {
-        return (motherboards >= this.motherboardsNeedIt && cpus >= this.cpusNeedIt && ram >= this.ramNeedIt && powerSupplies >= this.powerSupplyNeedIt);
+    // Getters
+
+    public float getIncomeStandard() {
+        return incomeStandard;
     }
 
-    /**
-     * Verifica si se puede ensamblar una computadora con tarjeta gráfica con los componentes disponibles.
-     * @param motherboards Número de placas base disponibles
-     * @param cpus Número de CPUs disponibles
-     * @param ram Número de módulos de RAM disponibles
-     * @param powerSupplies Número de fuentes de alimentación disponibles
-     * @param graphicsCards Número de tarjetas gráficas disponibles
-     * @return booleano, si es posible ensamblar una computadora con tarjeta gráfica
-     */
-    public boolean canMakeGraphicsCardComputer(int motherboards, int cpus, int ram, int powerSupplies, int graphicsCards) {
-        return (motherboards >= this.motherboardsNeedIt && cpus >= this.cpusNeedIt && ram >= this.ramNeedIt && powerSupplies >= this.powerSupplyNeedIt && graphicsCards >= this.graphicsCardNeedIt);
+    public float getIncomeWithGPU() {
+        return incomeWithGPU;
     }
 
-    // Getters y Setters comunes
+    public int getMotherboardsNeeded() {
+        return motherboardsNeeded;
+    }
+
+    public int getCpusNeeded() {
+        return cpusNeeded;
+    }
+
+    public int getRamModulesNeeded() {
+        return ramModulesNeeded;
+    }
+
+    public int getPowerSuppliesNeeded() {
+        return powerSuppliesNeeded;
+    }
+
+    public int getGpusNeeded() {
+        return gpusNeeded;
+    }
+
+    public int getEmployees() {
+        return employees;
+    }
+
+    public float getMotherboardCost() {
+        return motherboardCost;
+    }
+
+    public float getCpuCost() {
+        return cpuCost;
+    }
+
+    public float getRamCost() {
+        return ramCost;
+    }
+
+    public float getPowerSupplyCost() {
+        return powerSupplyCost;
+    }
+
+    public float getGpuCost() {
+        return gpuCost;
+    }
+
+    public float getAssemblerCost() {
+        return assemblerCost;
+    }
 
     public float getMotherboardProductionPerDay() {
         return motherboardProductionPerDay;
@@ -94,155 +122,44 @@ public abstract class CompanyRules {
         return powerSupplyProductionPerDay;
     }
 
-    public float getGraphicsCardProductionPerDay() {
-        return graphicsCardProductionPerDay;
+    public float getGpuProductionPerDay() {
+        return gpuProductionPerDay;
     }
 
-    public CompanyEnum getCompanyEnum() {
-        return companyEnum;
-    }
-
-    public float getIncomeStandard() {
-        return incomeStandard;
-    }
-
-    public void setIncomeStandard(float incomeStandard) {
-        this.incomeStandard = incomeStandard;
-    }
-
-    public float getIncomeGraphicsCard() {
-        return incomeGraphicsCard;
-    }
-
-    public void setIncomeGraphicsCard(float incomeGraphicsCard) {
-        this.incomeGraphicsCard = incomeGraphicsCard;
-    }
-
-    public int getComputersToGraphicsCard() {
-        return computersToGraphicsCard;
-    }
-
-    public void setComputersToGraphicsCard(int computersToGraphicsCard) {
-        this.computersToGraphicsCard = computersToGraphicsCard;
-    }
-
-    public int getDaysBetweenReleases() {
-        return daysBetweenReleases;
-    }
-
-    public void setDaysBetweenReleases(int daysBetweenReleases) {
-        this.daysBetweenReleases = daysBetweenReleases;
-    }
-
-    public int getMotherboardsNeedIt() {
-        return motherboardsNeedIt;
-    }
-
-    public void setMotherboardsNeedIt(int motherboardsNeedIt) {
-        this.motherboardsNeedIt = motherboardsNeedIt;
-    }
-
-    public int getCpusNeedIt() {
-        return cpusNeedIt;
-    }
-
-    public void setCpusNeedIt(int cpusNeedIt) {
-        this.cpusNeedIt = cpusNeedIt;
-    }
-
-    public int getRamNeedIt() {
-        return ramNeedIt;
-    }
-
-    public void setRamNeedIt(int ramNeedIt) {
-        this.ramNeedIt = ramNeedIt;
-    }
-
-    public int getPowerSupplyNeedIt() {
-        return powerSupplyNeedIt;
-    }
-
-    public void setPowerSupplyNeedIt(int powerSupplyNeedIt) {
-        this.powerSupplyNeedIt = powerSupplyNeedIt;
-    }
-
-    public int getGraphicsCardNeedIt() {
-        return graphicsCardNeedIt;
-    }
-
-    public void setGraphicsCardNeedIt(int graphicsCardNeedIt) {
-        this.graphicsCardNeedIt = graphicsCardNeedIt;
-    }
-
-    public float getCpuProducerCost() {
-        return cpuProducerCost;
-    }
-
-    public void setCpuProducerCost(float cpuProducerCost) {
-        this.cpuProducerCost = cpuProducerCost;
-    }
-
-    public float getRamProducerCost() {
-        return ramProducerCost;
-    }
-
-    public void setRamProducerCost(float ramProducerCost) {
-        this.ramProducerCost = ramProducerCost;
-    }
-
-    public float getPowerSupplyProducerCost() {
-        return powerSupplyProducerCost;
-    }
-
-    public void setPowerSupplyProducerCost(float powerSupplyProducerCost) {
-        this.powerSupplyProducerCost = powerSupplyProducerCost;
-    }
-
-    public float getGraphicsCardProducerCost() {
-        return graphicsCardProducerCost;
-    }
-
-    public void setGraphicsCardProducerCost(float graphicsCardProducerCost) {
-        this.graphicsCardProducerCost = graphicsCardProducerCost;
-    }
-
-    public float getBaseProducerCost() {
-        return baseProducerCost;
-    }
-
-    public void setBaseProducerCost(float baseProducerCost) {
-        this.baseProducerCost = baseProducerCost;
-    }
-
-    public float getAssemblerCost() {
-        return assemblerCost;
-    }
-
-    public void setAssemblerCost(float assemblerCost) {
-        this.assemblerCost = assemblerCost;
+    public int getComputersToComputersWithGPU() {
+        return computersToComputersWithGPU;
     }
 
     public float getPmCost() {
         return pmCost;
     }
 
-    public void setPmCost(float pmCost) {
-        this.pmCost = pmCost;
-    }
-
     public float getDirectorCost() {
         return directorCost;
     }
 
-    public void setDirectorCost(float directorCost) {
-        this.directorCost = directorCost;
+    public CompanyEnum getCompanyEnum() {
+        return companyEnum;
     }
 
-    public int getEmployees() {
-        return employees;
+    public void setCompanyEnum(CompanyEnum companyEnum) {
+        this.companyEnum = companyEnum;
+    }
+    
+    // Método para verificar si se puede ensamblar una computadora estándar
+    public boolean canAssembleStandardComputer(int motherboards, int cpus, int ramModules, int powerSupplies) {
+        return (motherboards >= this.getMotherboardsNeeded() && 
+                cpus >= this.getCpusNeeded() && 
+                ramModules >= this.getRamModulesNeeded() && 
+                powerSupplies >= this.getPowerSuppliesNeeded());
     }
 
-    public void setEmployees(int employees) {
-        this.employees = employees;
+    // Método para verificar si se puede ensamblar una computadora con GPU
+    public boolean canAssembleComputerWithGPU(int motherboards, int cpus, int ramModules, int powerSupplies, int gpus) {
+        return (motherboards >= this.getMotherboardsNeeded() && 
+                cpus >= this.getCpusNeeded() && 
+                ramModules >= this.getRamModulesNeeded() && 
+                powerSupplies >= this.getPowerSuppliesNeeded() && 
+                gpus >= this.getGpusNeeded());
     }
 }
