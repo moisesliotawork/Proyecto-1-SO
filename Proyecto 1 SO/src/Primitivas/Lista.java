@@ -84,7 +84,7 @@ public class Lista<T>{
             while(aux.getpNext() != null){ // Mientras que el siguiente de mi auxiliar NO sea null:
                 aux = aux.getpNext(); // Le asigno a mi aux el siguiente
             }
-            aux.setpNext(aux); // Setteo el next del último el nuevo
+            aux.setpNext(newNode); // Setteo el next del último el nuevo
         }
         
         this.size ++;
@@ -171,7 +171,7 @@ public class Lista<T>{
     }
     
     // Eliminar el último elemento de la lista
-    public void eliminarFinal(){
+    public boolean eliminarFinal(){
         if(!esVacio()){
             if(this.size == 1){ // Si nada mas había un elemento, vaciamos
                 this.vaciarLista();
@@ -182,7 +182,9 @@ public class Lista<T>{
                 }
                 aux.setpNext(null);
             }
+            return true;
         }
+        return false;
     }
     
     // Eliminar un nodo por referencia
